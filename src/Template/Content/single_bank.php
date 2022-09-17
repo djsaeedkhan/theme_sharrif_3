@@ -222,7 +222,7 @@ $results = $result;
 					$img2 = $this->Query->the_image(['size'=>'full']);?>
 
 					<article class="portfolio-item col-sm-3 col-md-3">
-						<div class="grid-inner bg-white br-151 f_style1" >
+						<div class="grid-inner bg-white news-box br-151 f_style1" >
 							<div class="portfolio-image">
 								<a href="<?= $this->Query->the_permalink(['id'=>$tmp['id']])?>">
 									<?php
@@ -247,19 +247,18 @@ $results = $result;
 							</div>
 							<div class="portfolio-desc pt-1" style="padding-left:15px;padding-right:15px;">
 								<h4 class="mb-1 pb-0 pt-3 text-center cls3">
-									<a href="<?= $this->Query->the_permalink(['id'=>$tmp['id']])?>">
+									<strong><a href="<?= $this->Query->the_permalink(['id'=>$tmp['id']])?>">
 										<?= $tmp['title']?>
-									</a>
+									</a></strong>
 									
 									<?= isset($metalist['scholars_semat'.$i])?'<div class="text-center mt-1">'.$metalist['scholars_semat'.$i].'</div>':''?>
 								</h4><hr class="hr1">
 								<?= author_list($metalist2)?>
 								<span>
-									<a href="<?= $this->Query->the_permalink();?>" class="btn btn-secondary float-right bg-color1 cls4">
-										<i class="icon-line-arrow-left text-white" style="vertical-align: inherit;"></i>
-										<!-- <span class="sr-only"><?=setting['t_tozihat']?></span> -->
-									</a>
-									<div class="tagcloud clearfix bottommargin1">
+									<div class="news-box-f">
+											<a href="<?= $this->Query->the_permalink();?>"><i class="icon-line-arrow-left"></i></a>
+										</div>
+									<div class="tagcloud clearfix bottommargin1" style="min-height: 40px;">
 										<?= $this->Query->the_tags();?>
 									</div>
 
@@ -393,7 +392,7 @@ $results = $result;
 				<?php endif;endforeach;?>
 			</div>
 
-			<div class="clear clearfix"></div>
+			<div class="clear clearfix" style="display: inline-block;margin-top: 50px;"></div>
 			<?php if(count($temps) > 9):?>
 				<div class="text-center">
 					<a href="<?= Router::url('/sources/index/')?>?centers=<?=$results['id']?>" class="btn btn-sm btn-primary sbtn1"><?=setting['t_all']?></a>
@@ -452,7 +451,7 @@ $results = $result;
 							<?= $this->html->image($this->Query->postimage('large',$tmp))?>
 						</div>
 						<div class="news-post-txt">
-							<span class="ecat c3">Business</span> 
+							<!-- <span class="ecat c3">Business</span>  -->
 							<h5>
 								<a href="<?= $this->Query->get_permalink($tmp)?>" title="<?= $tmp['title']?>">
 									<?= $tmp['title']?>
@@ -525,7 +524,7 @@ $results = $result;
 						</div> -->
 
 						<div class="news-post">
-                           	<div class="news-post-txt">
+                           	<div class="news-post-txt news-post-txt2">
 								<span class="ecat c1">
 									<?= (isset($metalist2['year']) and $metalist2['year'] != '')? $metalist2['year']:''?>
 								</span> 
@@ -592,4 +591,13 @@ $results = $result;
 	<!-- ------------------------------------------------------------------------- -->
 </div>
 </section>
+<style>
+.entry-title h4 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: column;
+	height: 87px;
+}
+</style>
 <?= $this->element('footer')?>

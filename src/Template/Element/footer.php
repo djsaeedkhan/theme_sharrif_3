@@ -375,7 +375,7 @@ color: <?= setting['color_lifooter'] != ''?setting['color_lifooter']:'#FFF';?>;
 color:<?= setting['color_ftitle'] != ''?setting['color_ftitle']:'#FFF'?> !important;
 } */
 <?= setting['color_hr'] != ''?'.hr1{background-color: '.setting['color_hr'].' !important;}':''?>
-.cls8{border-top-color:var(--master-color) !important;}
+/* .cls8{border-top-color:var(--master-color) !important;} */
 /* #copyrights{background-color: var(--master-color);} */
 .sub-title .menu-container > .menu-item:not(:first-child) > .menu-link::before {background-color: var(--master-color);}
 .rows1 .col-sm-6:first-child .row{border-<?=(lang=='fa')?'left':'right'?>: 2px solid var(--master-color);}

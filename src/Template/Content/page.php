@@ -6,6 +6,7 @@ $metalist = $this->Func->MetaList($result);
 <section id="page-title" class="page-title-center" 
 	style="background-image: url('<?= Router::url('/template/img/g1.jpg')?>'); background-size: cover; padding: 120px 0;" 
 	data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;">
+	<div class="bg1"></div>
 	<div class="container clearfix text-right">
 		<h1 class="pb-3"><?=$this->Query->the_title()?></h1>
 	</div>

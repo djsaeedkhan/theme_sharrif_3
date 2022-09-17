@@ -11,21 +11,20 @@
 			<div class="upcoming-events inner">
 				<ul>
 					<li>
-						<div class="edate"> <strong>30</strong> Sep <span class="year">2019</span> </div>
-						<h6> <a href="#">Violence against women</a> </h6>
-						<span class="loc">150 / G iii, Newyork, USA</span> 
+						<div class="edate"> <strong>15</strong> فروردین <span class="year">1390</span> </div>
+						<h6> <a href="#">برگزاری رویداد "هزارتوی یارانه بنزین در ایران"</a> </h6>
+						<span class="loc">خبرگزاری مهرنیوز</span> 
 					</li>
 					<li>
-						<div class="edate"> <strong>30</strong> Sep <span class="year">2019</span> </div>
-						<h6> <a href="#">New Year Cultural Festival</a> </h6>
-						<span class="loc">150 / G iii, Newyork, USA</span> 
+						<div class="edate"> <strong>30</strong> اسفند <span class="year">1401</span> </div>
+						<h6> <a href="#">بررسی عملکرد شورای عالی فضای مجازی در نظام حکمرانی رسانه</a> </h6>
+						<span class="loc">دانشگاه شریف</span> 
 					</li>
 					<li>
-						<div class="edate"> <strong>30</strong> Sep <span class="year">2019</span> </div>
-						<h6> <a href="#">Corner Meetings for
-							Next Elections.</a> 
+						<div class="edate"> <strong>29</strong> مرداد <span class="year">1400</span> </div>
+						<h6> <a href="#">دومین نشست تخصصی مسائل نظام اداری</a> 
 						</h6>
-						<span class="loc">150 / G iii, Newyork, USA</span> 
+						<span class="loc">دانشگاه علوم پزشکی اصفهان</span> 
 					</li>
 				</ul>
 			</div>
@@ -41,23 +40,22 @@
 			<div class="recent-posts inner">
 				<ul>
 					<li>
-						<img src="https://s24.picofile.com/file/8452639726/rp1.jpg" alt=""> 
-						<strong>28 August, 2019</strong>
-						<h6> <a href="#">Fake News may be worrisome, but the </a> </h6>
+						<img src="https://gptt.ssnet.ir/img/9.jpg" alt=""> 
+						<strong>29 مرداد 1401</strong>
+						<h6> <a href="#">برگزاری رویداد "هزارتوی یارانه بنزین در ایران"</a> </h6>
 					</li>
 					<li>
-						<img src="https://s24.picofile.com/file/8452639726/rp1.jpg" alt=""> 
-						<strong>28 August, 2019</strong>
-						<h6> <a href="#">Republic Faces Political Turmoil</a> </h6>
+						<img src="https://gptt.ssnet.ir/img/10.jpg" alt=""> 
+						<strong>29 مرداد 1401</strong>
+						<h6> <a href="#">دومین نشست تخصصی مسائل نظام اداری</a> </h6>
 					</li>
 					<li>
-						<img src="https://s24.picofile.com/file/8452639726/rp1.jpg" alt=""> 
-						<strong>28 August, 2019</strong>
-						<h6> <a href="#">Improve Police and Justice System</a> </h6>
+						<img src="https://gptt.ssnet.ir/img/8.jpg" alt=""> 
+						<strong>29 مرداد 1401</strong>
+						<h6> <a href="#">نشست بررسی چالش های قضایی تنظیم گری رقابت در ایران و راهکارهای سیاستی</a> </h6>
 					</li>
 				</ul>
 			</div>
 		</div>
-
 	</div>
 </div>

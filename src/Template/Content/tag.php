@@ -9,7 +9,7 @@ use Cake\Routing\Router;
 		setting['bgindex_'.$post_type]:
 		Router::url('/template/img/g1.jpg')?>'); background-size: cover; padding: 120px 0;" 
 	data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;">
-
+	<div class="bg1"></div>
 	<div class="container clearfix text-center">
 		<h1 class="pb-3"><?= $slug == ''?'برچسب ها':str_replace('-',' ',$slug)?></h1>
 	</div>
@@ -25,7 +25,7 @@ use Cake\Routing\Router;
 ============================================= -->
 <section id="content">
 	<div class="content-wrap pt-0 pb-0" style="background: #40407e;">
-		<div class="container-fluid bottommargin-lg1 clearfix">
+		<div class="container-fluid index_default bottommargin-lg1 clearfix">
 			<div class="row">
 				<?php include_once('sidebar.php')?>
 				<div class="col-lg-9 pt-4 pb-5" style="background:<?=setting['color_bgall']?>;">
@@ -37,10 +37,10 @@ use Cake\Routing\Router;
 							$img = $this->Query->the_image(['size'=>'medium']);
 							$img2 = $this->Query->the_image(['size'=>'full']);
 						?>
-						<article class="portfolio-item col-12 col-sm-4">
+						<article class="portfolio-item news-box col-12 col-sm-4">
 							<?= (in_array($post_type,['sources','events','page']))?
-								'<div class="grid-inner row align-items-center1 no-gutters bg-white br-15 cls99" >':
-								'<div class="grid-inner bg-white br-15" >';?>
+								'<div class="grid-inner row align-items-center1 no-gutters bg-white br-0 cls99" >':
+								'<div class="grid-inner bg-white br-0" >';?>
 
 								<?=  (in_array($post_type,['sources','events','page']))?'<div class="portfolio-image col-lg-4">':'<div class="portfolio-image">';?>
 									<a href="<?= $this->Query->the_permalink()?>">
@@ -100,13 +100,14 @@ use Cake\Routing\Router;
 										<?php if($this->Query->is_tags($result) and $post_type != 'page'){?>
 											<hr class="hr1" />
 										<?php }?>
-										<a href="<?= $this->Query->the_permalink();?>" class="btn btn-secondary float-right bg-color1 cls4">
-											<i class="icon-line-arrow-left text-white" style="vertical-align: inherit;"></i>
-											<!-- <span class="sr-only"><?=setting['t_tozihat']?></span> -->
-										</a>
+										
 
 										<div class="tagcloud clearfix bottommargin1">
 											<?= $this->Query->tags('',$result,['limit'=>2,'split'=>'','limit_text'=>8]);?>
+										</div>
+
+										<div class="news-box-f">
+											<a href="<?= $this->Query->the_permalink();?>"><i class="icon-line-arrow-left"></i></a>
 										</div>
 
 									</div>

@@ -4,7 +4,7 @@
 		<!-- Slider
 		============================================= -->
 		<div class="section mt-31 mb-01 m-0 center dark parallax min-vh-50" 
-			style="background: url('img/slider.jpg') bottom center  / cover; ">
+			style="background: url('<?=setting['slider__fiximg']?>') bottom center  / cover; ">
 			<div class="container">
 				<!-- <h3 class="h1 mb-5 pt-5">More than 100,000<br>Travellers Visit Our Hostels.</h3> -->
 				<!-- <a href="demo-hostel-tour.html" class="button button-xlarge fw-semibold bg-color nott ls0 px-5">Book Now</a> -->
@@ -13,7 +13,7 @@
 		
 		<section class="Mayor-video-msg">
 			<div class="container pt-3">
-				<div id="slider-services" class="owl-carousel owl-rtl carousel-widget " data-margin="20" data-loop="true" data-nav="false" data-pagi="true" data-autoplay="5000" data-items-sm="1" data-items-md="1" data-items-xl="1">
+				<div id="slider-services" class="owl-carousel owl-rtl carousel-widget" data-margin="20" data-loop="true" data-nav="false" data-pagi="true" data-autoplay="5000" data-items-sm="1" data-items-xs="1" data-items="1" data-items-md="1" data-items-xl="1">
 					<div class="oc-item">
 						<div class="container">
 							<div class="row">
@@ -265,6 +265,168 @@
 		</section>
 
 
+		
+
+
+		<!--Recent Events Start-->
+		<section class="wf100 recent-events">
+			<div class="bg2 p75">
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-5">
+						<h3><?=setting['bx2_title_r']?></h3>
+
+						<div class="fslider flex-thumb-grid grid-5 bottommargin-lg1" data-pagi="false" data-arrows="false" data-thumbs="true">
+							<div class="flexslider">
+								<div class="slider-wrap">
+									<div class="slide" data-thumb="img/8.jpg">
+										<div class="event-big">
+											<div class="event-cap">
+												<h5><a href="#"></a>نشست اعضای هیئت امنا</h5>
+												<ul>
+												<li><i class="icon-line-help"></i> بهمن 1399</li>
+												<li><i class="icon-line-help"></i> محل اندیشکده</li>
+												</ul>
+												<p>جلسه اعضای هیئت امنا به مناسب حضور ریاست جدید اندیشکده</p>
+											</div>
+											<img src="img/8.jpg" alt=""> 
+										</div>
+									</div>
+									<div class="slide" data-thumb="img/9.jpg">
+										<div class="event-big">
+											<div class="event-cap">
+												<h5><a href="#"></a>آغاز دومین کنفرانس حکمرانی و سیاستگذاری عمومی</h5>
+												<ul>
+												<li><i class="icon-line-help"></i> دی 1398</li>
+												<li><i class="icon-line-help"></i> مرکز همایش‌های صدا و سیما</li>
+												</ul>
+												<p>مراسم آغاز دومین کنفرانس حکمرانی و سیاستگذاری عمومی  </p>
+											</div>
+											<img src="img/9.jpg" alt=""> 
+										</div>
+									</div>
+									<div class="slide" data-thumb="img/10.jpg">
+										<div class="event-big">
+											<div class="event-cap">
+												<h5><a href="#">جلسه شورای نگهبان</a></h5>
+												<ul>
+												<li><i class="icon-line-help"></i> فروردین 1401</li>
+												<li><i class="icon-line-help"></i> دبیرخانه شورا</li>
+												</ul>
+												<p> حضور اعضای اندیشکده در جلسه هم‌اندیشی با حقوق دانان شورای نگهبان </p>
+											</div>
+											<img src="img/10.jpg" alt=""> 
+										</div>
+									</div>
+									<div class="slide" data-thumb="img/11.jpg">
+										<div class="event-big">
+											<div class="event-cap">
+												<h5><a href="#">تشست تخصصی</a></h5>
+												<ul>
+												<li><i class="icon-line-help"></i>اسفند 1400</li>
+												<li><i class="icon-line-help"></i> محل پژوهشکده</li>
+												</ul>
+												<p> نشست هزارتوی یارانه بنزین در اندیشکده حکمرانی </p>
+											</div>
+											<img src="img/11.jpg" alt=""> 
+										</div>
+									</div>
+									<div class="slide" data-thumb="img/9.jpg">
+										<div class="event-big">
+											<div class="event-cap">
+												<h5><a href="#"></a>آغاز دومین کنفرانس حکمرانی و سیاستگذاری عمومی</h5>
+												<ul>
+												<li><i class="icon-line-help"></i> دی 1398</li>
+												<li><i class="icon-line-help"></i> مرکز همایش‌های صدا و سیما</li>
+												</ul>
+												<p>مراسم آغاز دومین کنفرانس حکمرانی و سیاستگذاری عمومی  </p>
+											</div>
+											<img src="img/9.jpg" alt=""> 
+										</div>
+									</div>
+								
+								</div>
+							</div>
+						</div>
+
+						<div class="clearfix clear"></div>
+						<div class="pt-5 team-heading mt-3" style="text-align: left;">
+							<a href="#" class="btn-type1">ادامه تصاویر</a>
+						</div>
+
+					</div>
+					<div class="col-md-7">
+						<h3><?=setting['bx2_title_l']?></h3>
+						<div class="tabs clearfix" id="tab-1">
+							<ul class="nav nav-tabs tab-nav">
+								<li><a href="#tabs-1">رویدادهای آینده</a></li>
+								<li><a href="#tabs-2">اخبار منتخب</a></li>
+								<li><a href="#tabs-3">در رسانه‌ها</a></li>
+							</ul>
+							<div class="tab-container">
+								<div class="tab-content" id="tabs-1">
+
+									<!--Event List Start-->
+									<ul class="event-list">
+										<li><img src="img/9.jpg" alt=""></li>
+										<li class="el-title">
+											<h6><a href="#">برگزاری رویداد "هزارتوی یارانه بنزین در ایران"</a></h6>
+										</li>
+										<li> <strong class="edate">29 مرداد </strong> <strong class="etime">1401</strong> </li>
+									</ul>
+									<!--Event List End--> 
+									<!--Event List Start-->
+									<ul class="event-list">
+										<li><img src="img/10.jpg" alt=""></li>
+										<li class="el-title">
+											<h6><a href="#">بررسی عملکرد شورای عالی فضای مجازی در نظام حکمرانی رسانه ای کشور</a></h6>
+										</li>
+										<li> <strong class="edate">17 مرداد </strong> <strong class="etime">1401</strong> </li>
+									</ul>
+									<!--Event List End--> 
+									<!--Event List Start-->
+									<ul class="event-list">
+										<li><img src="img/11.jpg" alt=""></li>
+										<li class="el-title">
+											<h6><a href="#">نشست بررسی چالش های قضایی تنظیم گری رقابت در ایران و راهکارهای سیاستی</a></h6>
+										</li>
+										<li> <strong class="edate">22 تیر </strong> <strong class="etime">1401</strong> </li>
+									</ul>
+									<!--Event List End--> 
+									<!--Event List Start-->
+									<ul class="event-list">
+										<li><img src="img/8.jpg" alt=""></li>
+										<li class="el-title">
+											<h6><a href="#">دومین نشست تخصصی مسائل نظام اداری</a></h6>
+										</li>
+										<li> <strong class="edate">18 خرداد </strong> <strong class="etime">1401</strong> </li>
+									</ul>
+									<!--Event List End--> 
+
+
+									
+								</div>
+								<div class="tab-content" id="tabs-2">
+									تکرار رویدادها
+								</div>
+							</div>
+						</div>
+
+						<div class="clearfix clear"></div>
+						<div class="pt-4 team-heading"style="text-align: left;">
+							<a href="#" class="btn-type1">دیگر رویدادها</a>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			</div>
+		</section>
+
+		<!--Recent Events End--> 
+		<!-- ------------------------------------------------------------------------- -->
+		<!-- ------------------------------------------------------------------------- -->		
 		<section class="wf100 emergency-numbers">
 			<div class="container">
 				<div class="row">
@@ -368,162 +530,6 @@
 				</div>
 			</div>
 		</section>
-
-
-		<!--Recent Events Start-->
-		<section class="wf100 p75 recent-events">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-5">
-						<h3>چندرسانه‌‌ای</h3>
-
-						<div class="fslider flex-thumb-grid grid-5 bottommargin-lg1" data-pagi="false" data-arrows="false" data-thumbs="true">
-							<div class="flexslider">
-								<div class="slider-wrap">
-									<div class="slide" data-thumb="img/8.jpg">
-										<div class="event-big">
-											<div class="event-cap">
-												<h5><a href="#"></a>نشست اعضای هیئت امنا</h5>
-												<ul>
-												<li><i class="icon-line-help"></i> بهمن 1399</li>
-												<li><i class="icon-line-help"></i> محل اندیشکده</li>
-												</ul>
-												<p>جلسه اعضای هیئت امنا به مناسب حضور ریاست جدید اندیشکده</p>
-											</div>
-											<img src="img/8.jpg" alt=""> 
-										</div>
-									</div>
-									<div class="slide" data-thumb="img/9.jpg">
-										<div class="event-big">
-											<div class="event-cap">
-												<h5><a href="#"></a>آغاز دومین کنفرانس حکمرانی و سیاستگذاری عمومی</h5>
-												<ul>
-												<li><i class="icon-line-help"></i> دی 1398</li>
-												<li><i class="icon-line-help"></i> مرکز همایش‌های صدا و سیما</li>
-												</ul>
-												<p>مراسم آغاز دومین کنفرانس حکمرانی و سیاستگذاری عمومی  </p>
-											</div>
-											<img src="img/9.jpg" alt=""> 
-										</div>
-									</div>
-									<div class="slide" data-thumb="img/10.jpg">
-										<div class="event-big">
-											<div class="event-cap">
-												<h5><a href="#">جلسه شورای نگهبان</a></h5>
-												<ul>
-												<li><i class="icon-line-help"></i> فروردین 1401</li>
-												<li><i class="icon-line-help"></i> دبیرخانه شورا</li>
-												</ul>
-												<p> حضور اعضای اندیشکده در جلسه هم‌اندیشی با حقوق دانان شورای نگهبان </p>
-											</div>
-											<img src="img/10.jpg" alt=""> 
-										</div>
-									</div>
-									<div class="slide" data-thumb="img/11.jpg">
-										<div class="event-big">
-											<div class="event-cap">
-												<h5><a href="#">تشست تخصصی</a></h5>
-												<ul>
-												<li><i class="icon-line-help"></i>اسفند 1400</li>
-												<li><i class="icon-line-help"></i> محل پژوهشکده</li>
-												</ul>
-												<p> نشست هزارتوی یارانه بنزین در اندیشکده حکمرانی </p>
-											</div>
-											<img src="img/11.jpg" alt=""> 
-										</div>
-									</div>
-									<div class="slide" data-thumb="img/9.jpg">
-										<div class="event-big">
-											<div class="event-cap">
-												<h5><a href="#"></a>آغاز دومین کنفرانس حکمرانی و سیاستگذاری عمومی</h5>
-												<ul>
-												<li><i class="icon-line-help"></i> دی 1398</li>
-												<li><i class="icon-line-help"></i> مرکز همایش‌های صدا و سیما</li>
-												</ul>
-												<p>مراسم آغاز دومین کنفرانس حکمرانی و سیاستگذاری عمومی  </p>
-											</div>
-											<img src="img/9.jpg" alt=""> 
-										</div>
-									</div>
-								
-								</div>
-							</div>
-						</div>
-
-						<div class="clearfix clear"></div>
-						<div class="pt-5 team-heading mt-3 text-center">
-							<a href="#" class="btn-type1">ادامه تصاویر</a>
-						</div>
-
-					</div>
-					<div class="col-md-7">
-						<h3>اخبار و رویدادها</h3>
-						<div class="tabs clearfix" id="tab-1">
-							<ul class="nav nav-tabs tab-nav">
-								<li><a href="#tabs-1">رویدادهای آینده</a></li>
-								<li><a href="#tabs-2">اخبار منتخب</a></li>
-								<li><a href="#tabs-3">در رسانه‌ها</a></li>
-							</ul>
-							<div class="tab-container">
-								<div class="tab-content" id="tabs-1">
-
-									<!--Event List Start-->
-									<ul class="event-list">
-										<li><img src="img/9.jpg" alt=""></li>
-										<li class="el-title">
-											<h6><a href="#">برگزاری رویداد "هزارتوی یارانه بنزین در ایران"</a></h6>
-										</li>
-										<li> <strong class="edate">29 مرداد </strong> <strong class="etime">1401</strong> </li>
-									</ul>
-									<!--Event List End--> 
-									<!--Event List Start-->
-									<ul class="event-list">
-										<li><img src="img/10.jpg" alt=""></li>
-										<li class="el-title">
-											<h6><a href="#">بررسی عملکرد شورای عالی فضای مجازی در نظام حکمرانی رسانه ای کشور</a></h6>
-										</li>
-										<li> <strong class="edate">17 مرداد </strong> <strong class="etime">1401</strong> </li>
-									</ul>
-									<!--Event List End--> 
-									<!--Event List Start-->
-									<ul class="event-list">
-										<li><img src="img/11.jpg" alt=""></li>
-										<li class="el-title">
-											<h6><a href="#">نشست بررسی چالش های قضایی تنظیم گری رقابت در ایران و راهکارهای سیاستی</a></h6>
-										</li>
-										<li> <strong class="edate">22 تیر </strong> <strong class="etime">1401</strong> </li>
-									</ul>
-									<!--Event List End--> 
-									<!--Event List Start-->
-									<ul class="event-list">
-										<li><img src="img/8.jpg" alt=""></li>
-										<li class="el-title">
-											<h6><a href="#">دومین نشست تخصصی مسائل نظام اداری</a></h6>
-										</li>
-										<li> <strong class="edate">18 خرداد </strong> <strong class="etime">1401</strong> </li>
-									</ul>
-									<!--Event List End--> 
-
-
-									
-								</div>
-								<div class="tab-content" id="tabs-2">
-									تکرار رویدادها
-								</div>
-							</div>
-						</div>
-
-						<div class="clearfix clear"></div>
-						<div class="pt-4 team-heading"style="text-align: left;">
-							<a href="#" class="btn-type1">دیگر رویدادها</a>
-						</div>
-						
-					</div>
-				</div>
-			</div>
-		</section>
-    	<!--Recent Events End--> 
-		
 		<!-- ------------------------------------------------------------------------- -->
 		<!-- ------------------------------------------------------------------------- -->
 		<section class="wf100 p80 city-highlights ">
@@ -872,8 +878,8 @@
 						<div class="team-heading">
 							<h2>دستاوردهای منتخب</h2>
 							<p class="text-justify"> اندیشکده حکمرانی شریف به‌عنوان حلقه‌ای مکمل در روند رو به رشد حضور مراکز آکادمیک دانشگاهی کشور در حل مسائل عملی عرصه عمومی کشور در دانشگاه شریف فعالیت می‌نماید. </p>
-							<div class="text-center">
-								<a href="#">گزارش تفضیلی</a>
+							<div class="text-center mb-4 mb-sm-1">
+								<a href="#">گزارش تفصیلی</a>
 							</div>
 						</div>
 					</div>

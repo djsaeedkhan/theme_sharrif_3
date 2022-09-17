@@ -157,7 +157,7 @@ use Cake\Routing\Router;
 							$img = $this->Query->the_image(['size'=>'medium']);
 							$img2 = $this->Query->the_image(['size'=>'full']);
 						?>
-						<article class="portfolio-item col-12 col-sm-<?= in_array($post_type,['scholars','projects'])?'3':'6'?>">
+						<article class="portfolio-item col-12 news-box col-sm-<?= in_array($post_type,['scholars','projects'])?'3 tip1':'6 tip2'?>">
 							<?= (in_array($post_type,['sources','events','page']))?
 								'<div class="grid-inner row1 align-items-center1 no-gutters bg-white br-0 cls99" ><div class="row">':
 								'<div class="grid-inner bg-white br-0" >';?>
@@ -233,6 +233,11 @@ use Cake\Routing\Router;
 											</div>
 										</div>
 										<?php }?>
+
+										<div class="news-box-f">
+											<a href="<?= $this->Query->the_permalink();?>"><i class="icon-line-arrow-left"></i></a>
+										</div>
+
 
 									</div>
 								</div>

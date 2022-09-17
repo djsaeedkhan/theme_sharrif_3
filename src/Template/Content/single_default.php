@@ -42,10 +42,10 @@ include_once('functions.php');
 				?>
 			</div>
 			<div class="col-sm-6 text-left lh-301 pt-4" style="font-size: 15px;">
-				<div class="text-justify float-right" dir="ltr" style="font-weight: bold;padding-top: 10px;text-transform: capitalize;">
+				<div class="text-justify float-right" dir="ltr" style="text-align: left;font-weight: bold;padding-top: 10px;text-transform: capitalize;">
 					<?= (isset($metalist['en_title']) and $metalist['en_title']!='')?$metalist['en_title']:''?>
 				</div>
-				<h1 class="fs-231 lh-30 mb-1 pb-1 ls-0 text-justify"style="font-size: 18px;">
+				<h1 class="fs-231 lh-30 mb-1 pb-1 ls-0 text-justify text-dark"style="font-size: 18px;">
 					<?= $this->Query->the_title()?>
 				</h1>
 				
@@ -341,9 +341,9 @@ include_once('functions.php');
 												<?= $this->html->image($this->Query->postimage('thumbnail',$tmp),['alt'=> $tmp['title'] ])?>
 											</div>
 										</div>
-										<div class="col <?=(lang=='fa')?'pr-3':'pl-3';?>">
+										<div class="col <?=(lang=='fa')?'pr-3 p-0':'pl-3 p-0';?>">
 											<div class="entry-title bg-white" style="min-height: 85px;">
-												<h4 class="fs-18 py-2 px-2 fw-n">
+												<h4 class="fs-18 py-2 px-0 fw-n">
 													<a href="<?= $this->Query->the_permalink(['id'=>$tmp['id']])?>" alt="<?= $tmp['title']?>">
 														<?= $this->Query->the_mexcerpt($tmp['title'],27);?>
 												</a></h4>
@@ -373,9 +373,9 @@ include_once('functions.php');
 												<?= $this->html->image($this->Query->postimage('thumbnail',$tmp),['alt'=> $tmp['title'] ])?>
 											</div>
 										</div>
-										<div class="col <?=(lang=='fa')?'pr-3':'pl-3';?>">
+										<div class="col <?=(lang=='fa')?'pr-3 p-0':'pl-3 p-0';?>">
 											<div class="entry-title bg-white" style="min-height: 85px;">
-												<h4 class="fs-18 py-2 px-2 fw-n">
+												<h4 class="fs-18 py-2 px-0 fw-n">
 													<a href="<?= $this->Query->the_permalink(['id'=>$tmp['id']])?>" alt="<?= $tmp['title']?>">
 														<?= $this->Query->the_mexcerpt($tmp['title'],27);?>
 												</a></h4>
@@ -405,9 +405,9 @@ include_once('functions.php');
 												<?= $this->html->image($this->Query->postimage('thumbnail',$tmp),['alt'=> $tmp['title'] ])?>
 											</div>
 										</div>
-										<div class="col <?=(lang=='fa')?'pr-3':'pl-3';?>">
+										<div class="col <?=(lang=='fa')?'pr-3 p-0':'pl-3 p-0';?>">
 											<div class="entry-title bg-white" style="min-height: 85px;">
-												<h4 class="fs-18 py-2 px-2 fw-n">
+												<h4 class="fs-18 py-2 px-0 fw-n">
 													<a href="<?= $this->Query->the_permalink(['id'=>$tmp['id']])?>" alt="<?= $tmp['title']?>">
 														<?= $this->Query->the_mexcerpt($tmp['title'],27);?>
 												</a></h4>
@@ -474,6 +474,13 @@ include_once('functions.php');
 		}
 		.gg1 .read-more-wrap-open{
 			height:inherit !important;
+		}
+		.entry-title h4 {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-flow: column;
+			height: 87px;
 		}
 		</style>
 	</div>

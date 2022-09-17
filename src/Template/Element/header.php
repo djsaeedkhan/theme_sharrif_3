@@ -45,19 +45,27 @@ define('lang', isset(setting['default_lang'])?setting['default_lang']:'fa');
 
 						<!-- Logo
 						============================================= -->
-						<div id="logo" class="col col-sm-auto">
+						<div id="logo" class1="col col-sm-auto">
 							<a href="/" class="standard-logo" data-dark-logo="https://gptt.ssnet.ir/img/logo.png">
 								<img src="https://gptt.ssnet.ir/img/logo.png" alt=" Logo"></a>
 							<a href="/" class="retina-logo" data-dark-logo="https://gptt.ssnet.ir/img/logo.png">
 								<img src="https://gptt.ssnet.ir/img/logo.png" alt=" Logo"></a>
 						</div><!-- #logo end -->
 
-						<div id="primary-menu-trigger">
+
+						<div id="primary-menu-trigger" style="margin-top: 10px;">
 							<svg class="svg-trigger" viewBox="0 0 100 100"><path d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"></path><path d="m 30,50 h 40"></path><path d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"></path></svg>
 						</div>
 
+						<div id="top-search" class="header-misc-icon d-block d-sm-none" style="margin-left: 40px;">
+							<a href="#" id="top-search-trigger"><i class="icon-line-search"></i><i class="icon-line-cross"></i></a>
+						</div>
+
 						<div class="header-misc pl-1">
-							<a  class="button fw-semibold" style="margin: 0;padding: 17px 10px;cursor: none;background: #d94148;">
+							<!-- #top-search end -->
+
+
+							<a class="button fw-semibold d-none d-sm-block" style="margin: 0;padding: 17px 10px;cursor: none;background: #d94148;">
 								<form class="row gx-3 align-items-center my-0 my-lg-0">
 									<div class="col">
 										<input class="form-control" 
@@ -109,6 +117,10 @@ define('lang', isset(setting['default_lang'])?setting['default_lang']:'fa');
 							</ul>
 
 						</nav> --><!-- #primary-menu end -->
+
+						<form class="top-search-form" action="search.html" method="get">
+							<input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter.." autocomplete="off">
+						</form>
 
 					</div>
 				</div>
