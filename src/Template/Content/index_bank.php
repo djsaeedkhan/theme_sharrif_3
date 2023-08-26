@@ -154,19 +154,28 @@ include_once('functions.php');
 							$this->Paginator->options([
 								'url' => [
 									'plugin'=>'Website',
-									'controller' =>$post_type   ,
+									'controller' =>!is_array($post_type )?$post_type :false  ,
 									'action' =>'index' ,
 									$this->request->getParam('catid'),
 									$this->request->getParam('catslug'),
+									
+									//added 1402/4/21
+									'?'=>$this->request->getQuery()
+								]
+							]);
+						else:
+							$this->Paginator->options([
+								'url' => [
+									'plugin'=>'Website',
+									'controller' =>!is_array($post_type )?$post_type :false  ,
+									'action' =>'index' ,
+									$this->request->getParam('catid'),
+									$this->request->getParam('catslug'),
+									
+									//added 1402/4/21
 									//'?'=>$this->request->getQuery()
 								]
 							]);
-						/* else
-							$this->Paginator->options([
-								'url' => [
-									'controller' => $this->request->getParam('action'),
-									'action' => $post_type ]
-							]); */
 						endif;
 						
                         $this->Paginator->setTemplates([

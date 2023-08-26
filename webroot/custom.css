@@ -1,4 +1,7 @@
-@font-face {
+:root{
+	--owl-nav-bg: #d94148 !important;
+}
+/* @font-face {
     font-family: "IranSans";
     font-style: "normal";
     font-weight: "normal";
@@ -6,7 +9,7 @@
     src: url("font/iransans/IRANSansWeb.eot?#iefix") format("embedded-opentype"), 
          url("font/iransans/IRANSansWeb.woff") format("woff"),
          url("font/iransans/IRANSansWeb.ttf") format("truetype");
-}
+} */
 @font-face {
     font-family: "Sahel";
     font-style: "normal";
@@ -18,7 +21,7 @@
 }
 
 h1, h2, h3, h4, h5, h6, #logo,.menu-link, #primary-menu ul li > a, #primary-menu ul li .mega-menu-content.style-2 ul.mega-menu-column > li.mega-menu-title > a, #top-search form input, .entry-link, .entry.entry-date-section span, .button.button-desc, .counter, label, .nav-tree li a, .wedding-head .first-name, .wedding-head .last-name, .font-primary, body, small, #primary-menu ul ul li > a, .wp-caption, .feature-box.fbox-center.fbox-italic p, .skills li .progress-percent .counter, .entry-meta li, .entry-link span, .entry blockquote p, .more-link, .comment-content .comment-author span, .button.button-desc span, .testi-content p, .team-title span, .before-heading, .wedding-head .first-name span, .wedding-head .last-name span, .nav-tree ul ul a, .font-body {
-    font-family: 'IranSans';
+    /* font-family: 'IranSans'; */
     font-family: 'Sahel';
 }
 .br-15{
@@ -369,18 +372,14 @@ h1, h2, h3, h4, h5, h6, #logo,.menu-link, #primary-menu ul li > a, #primary-menu
 		width: auto !important;
 	}
 }
-
-
 /* ----- Tab ----- */
 /* ul.tab-nav:not(.tab-nav-lg) { border-bottom: none; } */
-
 ul.tab-nav:not(.tab-nav-lg) li {
 	/* float: left; */
 	border: none;
 	/* height: auto; */
 	text-align: center;
 }
-
 .tabs.tabs-alt ul.tab-nav li.ui-tabs-active a { border: none; }
 /* 
 ul.tab-nav:not(.tab-nav-lg) li a {
@@ -392,16 +391,13 @@ ul.tab-nav:not(.tab-nav-lg) li a {
 	font-weight: 400;
 	padding: 0 0 20px 0;
 }
-
 ul.tab-nav:not(.tab-nav-lg) li a i {
 	display: block;
 	font-size: 42px;
 	margin: 0 0 17px 0;
 	color: var(--themecolor);
 } */
-
 ul.tab-nav:not(.tab-nav-lg) li.ui-tabs-active a { top: 0; }
-
 ul.tab-nav:not(.tab-nav-lg) li.ui-tabs-active a::after {
 	content: '';
 	position: absolute;
@@ -413,10 +409,7 @@ ul.tab-nav:not(.tab-nav-lg) li.ui-tabs-active a::after {
 	border-radius: 50%;
 	background: var(--themecolor);
 }
-
 .tab-container { margin: 30px 0 0; }
-
-
 /* ----- Tab Responsive ----- */
 .acctitle {
 	line-height: 30px;
@@ -432,14 +425,11 @@ ul.tab-nav:not(.tab-nav-lg) li.ui-tabs-active a::after {
 	font-size: 16px;
 	top: 3px;
 }
-
 .acctitle i.icon-ok-circle,
 .acctitle i.icon-remove-circle { display: none; }
-
 .sub-menu-container .menu-item > .menu-link {
     font-family: inherit;
 }
-
 @media (min-width: 992px){
 	.sub-menu-container, .mega-menu-content {
 		right: 0;
@@ -463,15 +453,10 @@ ul.tab-nav:not(.tab-nav-lg) li.ui-tabs-active a::after {
 		margin-bottom: 5px;
 	}
 }
-
 .fbox-content h3{
 	font-family: inherit;
 }
-
-
-
 @media (min-width: 992px){
-	
 	.postcontent .post-timeline .entry-timeline {
 		width: 30px;
 		height: 30px;
@@ -500,19 +485,15 @@ ul.tab-nav:not(.tab-nav-lg) li.ui-tabs-active a::after {
 #header.sticky-on-scrollup.sticky-header #header-wrap { margin-top: -60px; }
 #header.sticky-on-scrollup.show-sticky-onscroll.sticky-header #header-wrap { margin-top: 0px; } 
 */
-
 .testimonial-full .testi-meta::before{
 	content: none;
 }
-
 .testimonial-full .testi-meta a{
 	color: inherit;
 }
 .testimonial-full:hover .testi-meta a{
 	color: #1ABC9C;
 }
-
-
 @media (min-width: 992px){
 	#logo img {
 		/* height: inherit !important; */
@@ -525,7 +506,6 @@ ul.tab-nav:not(.tab-nav-lg) li.ui-tabs-active a::after {
 		background: #1a1a4c;
 		border-bottom: 0;
 	} */
-
 	.sub-title .menu-container > .menu-item:not(:first-child) > .menu-link::before {
 		width: 2px;
 	}
@@ -540,7 +520,6 @@ ul.tab-nav:not(.tab-nav-lg) li.ui-tabs-active a::after {
 	.sub-title .menu-container > .menu-item > .menu-link span {
 		color: #FFF;
 	}
-
 	/* .sticky-header .sub-title .menu-container > .menu-item > .menu-link span{
 		color:#000 !Important;
 	}
@@ -554,7 +533,6 @@ ul.tab-nav:not(.tab-nav-lg) li.ui-tabs-active a::after {
 	.rows1 .col-sm-6:last-child .row{
 		padding-right: 10px;
 	}
-	
 	.tabs.tabs-alt ul.tab-nav li.ui-tabs-active  div,
 	#page-menu-wrap .current a {
 		background: #FFF;
@@ -567,7 +545,6 @@ ul.tab-nav:not(.tab-nav-lg) li.ui-tabs-active a::after {
 	#page-menu-wrap .current a {
 		border-bottom: 5px solid #bfbdbd !important;
 	}
-
 	.tabs-alt ul.tab-nav li div,
 	#page-menu-wrap a {
 		/* background: #a8a9ad;
@@ -578,7 +555,6 @@ ul.tab-nav:not(.tab-nav-lg) li.ui-tabs-active a::after {
 		border-bottom: 5px solid #c2c1eb;
 		border-radius: 100px !important;
 		color: #FFF; */
-
 		line-height: 30px;
 		background: #d94148;
 		text-align: center;
@@ -592,15 +568,19 @@ ul.tab-nav:not(.tab-nav-lg) li.ui-tabs-active a::after {
 		padding: 5px 10px !important;
 		border: 1px solid transparent;
 	}
-
+	#page-menu-wrap li a {
+		border-bottom: 2px solid transparent;
+	}
+	#page-menu-wrap li.active a {
+		border-bottom: 2px solid #FFF;
+	}
 	.tabs-alt ul.tab-nav li div:hover,
 	#page-menu-wrap a:hover {
 		background: #40407e;
 		color: #fff;
 		border: 1px solid #FFF;
+		border-bottom: 2px solid #FFF;
 	}
-
-
 	nav.page-menu-nav1{
 		width: 100%;
 	}
@@ -612,7 +592,6 @@ ul.tab-nav:not(.tab-nav-lg) li.ui-tabs-active a::after {
 		display: contents;
 		display: flex;
 	}
-	
 	.tabs-alt .custom-filter li:before{
 		content: "\eb8a";
 		font-family: 'font-icons';
@@ -624,7 +603,6 @@ ul.tab-nav:not(.tab-nav-lg) li.ui-tabs-active a::after {
 	color: #000 !important;
 	/* background: #ecf1f7 !important; */
 	background: #d94148 !important;
-	 
 }
 .color-orange{color: #f05952;}
 .splits{display:inline;}
@@ -745,7 +723,7 @@ ul.tab-nav:not(.tab-nav-lg) li.ui-tabs-active a::after {
     border: 1px solid #e9e6f7 !important;
     color: #666666 !important;
     border-radius: 3px;
-    font-size: 14px!important;
+    font-size: 12px!important;
     background: #f7f7f7!important;
     border-radius: 20px!important;
 }
@@ -917,6 +895,17 @@ ul.tab-nav:not(.tab-nav-lg) li.ui-tabs-active a::after {
 	.min-vh-45 {
 		min-height: 45vh !important;
 	}
+	.box1 .thumb img,
+	.box2 .thumb img
+	{
+		height: 215px;
+	}
+	.one-page-menus{
+		margin-right: 25px;
+	}
+	.is_page#page-menu-wrap{
+		position: inherit;
+	}
 }
 .city-tour {
 	position: relative;
@@ -930,7 +919,7 @@ ul.tab-nav:not(.tab-nav-lg) li.ui-tabs-active a::after {
 	left: -5px;
 	top: 20px;
 	color: #fff;
-	
+	z-index: 999;
 	font-size: 14px;
 	text-transform: uppercase;
 	line-height: 30px;
@@ -1323,8 +1312,14 @@ body .btn-group.open .dropdown-toggle {
 	min-height: 130px;
 }
 .h2-news-articles .news-post{
-    min-height: 215px !important;
+    min-height: 205px !important;
 }
+.box3 .news-post,
+.box4  .news-post,
+.box5 .news-post{
+	min-height: 250px !important;
+}
+
 .h2-news-articles .dropdown-toggle::after{
 	content:none !important;
 }
@@ -1355,7 +1350,7 @@ body .btn-group.open .dropdown-toggle {
 .news-post-txt h5 {
 	font-weight: 700;
 	margin: 0 0 10px;
-	line-height: 30px;
+	line-height: 25px;
 	/* letter-spacing: -.5px; */
 	position: absolute;
     bottom: 0;
@@ -1418,7 +1413,7 @@ news-post-txt2 h5{
 	margin-right: 3px;
 }
 .news-post .news-post-txt {
-	padding: 5px 30px;
+	padding: 5px 15px;
 }
 .thumb .ecat {
 	position: absolute;
@@ -2649,6 +2644,7 @@ ul.team-social a:hover {
     min-height: 85px;
 }
 .widgets .upcoming-events .edate {
+	height: 100%;
 	width: 62px;
 	background: #d94148;
 	position: absolute;
@@ -2834,9 +2830,26 @@ ul.team-social a:hover {
 	color: #40407e;
 	border-color: #40407e;
 }
+#footer .footer-widgets-wrap{
+	font-style: initial;
+}
 /********************************************************/
 .pagination.pagination-rounded .page-item .page-link {
     border-radius: 0px;
     margin: -1px !important;
+}
+.menu-item:hover > .menu-link, .menu-item.current > .menu-link {
+    color: #d94148;
+}
+.sub-menu-container .menu-item:hover > .menu-link {
+    color: #d94148;
+}
+@media (min-width: 992px){
+	.sub-menu-container, .mega-menu-content {
+		border-top: 2px solid #d94148;
+	}
+}
+.owl-carousel .owl-dots .owl-dot {
+    background-color: #d94148;
 }
 /********************************************************/

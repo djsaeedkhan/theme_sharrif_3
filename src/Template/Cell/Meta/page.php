@@ -13,7 +13,7 @@
         echo $this->Form->control('PostMetas.en_url',[
             'class'=>'form-control ltr','placeholder'=>'https://',
             'label'=>'لینک به سایت دیگر',
-            'default'=>(isset($post_meta_list['en_url'])?$post_meta_list['en_title']:'') ]).'<br>';
+            'default'=>(isset($post_meta_list['en_url'])?$post_meta_list['en_url']:'') ]).'<br>';
         ?>
     </div>
 </div>

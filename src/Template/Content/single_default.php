@@ -14,7 +14,7 @@ include_once('functions.php');
 		background-size: cover; padding: 100px 0;" 
 	data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;">
 	<div class="bg1"></div>
-	<div class="container clearfix text-right" style="background: #fff;
+	<div class="container clearfix text-right" style="background: rgb(255 255 255 / 85%);
     border-radius: 3px;
     box-shadow: 0 3px 6px rgb(0 0 0 / 12%);
     padding: 30px;">
@@ -28,7 +28,7 @@ include_once('functions.php');
 							'alt'=>$result['title'], 
 							'title'=>$result['title'],
 							'class'=>'br-15',
-							'style'=>'width: 200px;height:300px;']);
+							'style'=>'widths: 200px;max-height:300px;']);
 						break;
 					
 					default:
@@ -157,7 +157,7 @@ include_once('functions.php');
 						}
 					break;
 
-					case 'events':
+					case 'event':
 						echo $this->Query->the_category($result,['link'=>false]);
 						
 						$author = author_list($metalist);
@@ -206,87 +206,91 @@ include_once('functions.php');
 <div id="page-menu" data-mobile-sticky="true">
 	<div id="page-menu-wrap">
 		<div class="container">
-			<div class="page-menu-row py-1">
+			<div class="row"><div class="col-sm-2"></div>
+				<div class="col-sm-10">
+					<div class="page-menu-row py-1">
+						<nav class="page-menu-nav one-page-menu one-page-menus">
+							<ul class="page-menu-container">
+								<?php $cnt = false;
+								for($i=1;$i<7;$i++):if(isset($metalist['data_title'.$i]) and $metalist['data_title'.$i] != ''):$cnt=true;?>
+								<li class="page-menu-item <?=(lang=='fa')?'ml-4':'mr-4'?>">
+									<a href="#" class="text-dark" data-href="#section-<?=$i?>">
+										<?=$metalist['data_title'.$i]?>
+									</a>
+								</li>
+								<?php endif;endfor?>
+								
 
-				<nav class="page-menu-nav one-page-menu">
-					<ul class="page-menu-container">
-						<?php $cnt = false;
-						for($i=1;$i<7;$i++):if(isset($metalist['data_title'.$i]) and $metalist['data_title'.$i] != ''):$cnt=true;?>
-						<li class="page-menu-item <?=(lang=='fa')?'ml-4':'mr-4'?>">
-							<a href="#" class="text-dark" data-href="#section-<?=$i?>">
-								<?=$metalist['data_title'.$i]?>
-							</a>
-						</li>
-						<?php endif;endfor?>
-						
+								<?php if($post_type == 'scholars'):?>
 
-						<?php if($post_type == 'scholars'):?>
+									<?php
+									$t_manabe = $this->Query->post('sources',[
+										'contain'=>['PostMetas'],
+										'contain_where' => [
+											'meta_key_like' => 'scholars',
+											'meta_value_like' => '"'.$result['id'].'"'],
+										'get_type'=>'all','order' => false]);
+									if(count($t_manabe)):?>
+									<li class="page-menu-item <?=(lang=='fa')?'ml-4':'mr-4'?>">
+										<a href="#" class="text-dark" data-href="#section-41">
+											<?=setting['t_manabe']?>
+										</a>
+									</li>
+									<?php endif?>
 
-							<?php
-							$t_manabe = $this->Query->post('sources',[
-								'contain'=>['PostMetas'],
-								'contain_where' => [
-									'meta_key_like' => 'scholars',
-									'meta_value_like' => '"'.$result['id'].'"'],
-								'get_type'=>'all','order' => false]);
-							if(count($t_manabe)):?>
-							<li class="page-menu-item <?=(lang=='fa')?'ml-4':'mr-4'?>">
-								<a href="#" class="text-dark" data-href="#section-41">
-									<?=setting['t_manabe']?>
-								</a>
-							</li>
-							<?php endif?>
+									<?php
+									$t_projects = $this->Query->post('projects',[
+										'contain'=>['PostMetas'],
+										'contain_where' => [
+											'meta_key_like' => 'scholars',//$post_type ,
+											'meta_value_like' => '"'.$result['id'].'"'],
+										'get_type'=>'all','order' => false]);
+									if(count($t_projects)):?>
+									<li class="page-menu-item <?=(lang=='fa')?'ml-4':'mr-4'?>">
+										<a href="#" class="text-dark" data-href="#section-42">
+											<?=setting['t_projects']?>
+										</a>
+									</li>
+									<?php endif?>
 
-							<?php
-							$t_projects = $this->Query->post('projects',[
-								'contain'=>['PostMetas'],
-								'contain_where' => [
-									'meta_key_like' => 'scholars',//$post_type ,
-									'meta_value_like' => '"'.$result['id'].'"'],
-								'get_type'=>'all','order' => false]);
-							if(count($t_projects)):?>
-							<li class="page-menu-item <?=(lang=='fa')?'ml-4':'mr-4'?>">
-								<a href="#" class="text-dark" data-href="#section-42">
-									<?=setting['t_projects']?>
-								</a>
-							</li>
-							<?php endif?>
+									<?php
+									$t_events = $this->Query->post('event',[
+										'contain'=>['PostMetas'],
+										'order'=>['created'=>'desc'],
+										'contain_where' => [
+											'meta_key_like' => 'scholars',
+											'meta_value_like' => '"'.$result['id'].'"'],
+										'get_type'=>'all','order' => false]);
+									if(count($t_events)):?>
+									<li class="page-menu-item <?=(lang=='fa')?'ml-4':'mr-4'?>">
+										<a href="#" class="text-dark" data-href="#section-43">
+											<?=setting['t_events']?>
+										</a>
+									</li>
+									<?php endif?>
 
-							<?php
-							$t_events = $this->Query->post('events',[
-								'contain'=>['PostMetas'],
-								'order'=>['created'=>'desc'],
-								'contain_where' => [
-									'meta_key_like' => 'scholars',
-									'meta_value_like' => '"'.$result['id'].'"'],
-								'get_type'=>'all','order' => false]);
-							if(count($t_events)):?>
-							<li class="page-menu-item <?=(lang=='fa')?'ml-4':'mr-4'?>">
-								<a href="#" class="text-dark" data-href="#section-43">
-									<?=setting['t_events']?>
-								</a>
-							</li>
-							<?php endif?>
+								<?php endif?>
 
-						<?php endif?>
-
-						<?php if(isset($metalist['gallery_img1']) and $metalist['gallery_img1'] != ''):?>
-						<li class="page-menu-item <?=(lang=='fa')?'ml-4':'mr-4'?>">
-							<a href="#" class="text-dark" data-href="#section-44">
-								<?=setting['t_gallery']?>
-							</a>
-						</li>
-						<?php endif?>
-					</ul>
-				</nav>
-				<div id="page-menu-trigger"><i class="icon-reorder"></i></div>
+								<?php if(isset($metalist['gallery_img1']) and $metalist['gallery_img1'] != ''):?>
+								<li class="page-menu-item <?=(lang=='fa')?'ml-4':'mr-4'?>">
+									<a href="#" class="text-dark" data-href="#section-44">
+										<?=setting['t_gallery']?>
+									</a>
+								</li>
+								<?php endif?>
+							</ul>
+						</nav>
+				
+						<div id="page-menu-trigger"><i class="icon-reorder"></i></div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
 <?php if($cnt == false):?>
-<script>
+<script nonce="<?=get_nonce?>">
 	$('#page-menu-wrap').addClass('d-none');
 </script>
 <?php endif?>
@@ -297,6 +301,29 @@ include_once('functions.php');
 			<div class="row">
 				<?php include_once('sidebar.php')?>
 				<div class="col-lg-9 boxed 1pt-4 1pb-5 p-0" style="background: #FFF;">
+
+					<?php if($this->Query->the_content() != '' ):?>
+						<div id="section-0" 
+							class="section m-0 dark1 min-vh-25 min-vh-lg-25 pr-md-5 pl-md-5 text-justify"
+							style="line-height: 30px !important;">
+							<?php 
+							$txt = $this->Query->the_content();
+							$count = preg_match_all ('<br>',$txt);
+							if($count > 30 or strlen($txt) > 10000 ):?>
+								<div data-readmore="false" data-readmore-trigger-open="<?=setting['t_seeall']?> <i class='icon-angle-down'></i>" 
+									data-readmore-trigger-close="<?=setting['t_seeless']?> <i class='icon-angle-up'></i>"  data-readmore-size="35rem"
+									class="text-justify">
+										<div class="text-justify">
+											<?= strip_tags(trim($txt),'<video><source><br><p><a><ul><li><img><div><iframe>') ?>
+										</div>
+									<a href="#" class="btn btn-link text-primary read-more-trigger"></a>
+								</div>
+							<?php else:?>
+								<?= strip_tags(trim($txt),'<video><source><br><p><a><ul><li><img><div><iframe>') ?>
+							<?php endif;?>
+						</div>
+					<?php endif;?>
+					
 					<?php for($i=1;$i<7;$i++):if(isset($metalist['data_title'.$i]) and $metalist['data_title'.$i] != ''):?>
 						<div id="section-<?=$i?>" 
 							class="section m-0 dark1 min-vh-25 min-vh-lg-25 pr-md-5 pl-md-5 text-justify"
@@ -314,12 +341,12 @@ include_once('functions.php');
 									data-readmore-trigger-close="<?=setting['t_seeless']?> <i class='icon-angle-up'></i>"  data-readmore-size="35rem"
 									class="text-justify">
 										<div class="text-justify">
-											<?= strip_tags(trim($metalist['data_text'.$i]),'<br><p><a><ul><li><img><div><iframe>') ?>
+											<?= strip_tags(trim($metalist['data_text'.$i]),'<video><source><br><p><a><ul><li><img><div><iframe>') ?>
 										</div>
 									<a href="#" class="btn btn-link text-primary read-more-trigger"></a>
 								</div>
 							<?php else:?>
-								<?= strip_tags(trim($metalist['data_text'.$i]),'<br><p><a><ul><li><img><div><iframe>') ?>
+								<?= strip_tags(trim($metalist['data_text'.$i]),'<video><source><br><p><a><ul><li><img><div><iframe>') ?>
 							<?php endif;?>
 							
 						</div>

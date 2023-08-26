@@ -1,44 +1,58 @@
 <footer id="footer" class="dark1" style="background: #000">
-
 <div class="container px-sm-5">
-
 	<!-- Footer Widgets
 	============================================= -->
 	<div class="footer-widgets-wrap pt-4 pb-0">
-
 		<div class="row"> 
 			<!--Footer Widget Start-->
 			<div class="col-md-5 col-sm-6 pt-5 pb-5">
 				<div class="textwidget text-white" style="text-align:justify">
-					<img src="https://gptt.ssnet.ir/img/logo.png" style="filter: brightness(0) invert(1);height: 100px;">
+					<img src="<?=setting['footer_img']?>" style="filter: brightness(0) invert(1);height: 100px;">
 					<br><br>
-					پژوهشکده سیاستگذاری دانشگاه صنعتی شریف نهادی با هدف ایفای نقش واسط میان نخبگان جامعه و نهادهای حکمرانی، برای یاری‌رساندن به حاکمیت و پر کردن این خلأ ایجاد شده‌ است.
+					<?=setting['footer_desc']?>
 					<br><br>
 					
-					<a href="https://www.instagram.com/sharif.policy/" target="_blank">
+					<?php if(setting['footer_soc_insta'] != ''):?>
+					<a href="<?=setting['footer_soc_insta']?>" target="_blank">
 						<i class="icon-instagram px-2 text-white"></i>
 						<!-- اینستاگرام -->
 					</a>
-				
-					<a href="https://twitter.com/spri_tweet" target="_blank">
+					<?php endif?>
+
+					<?php if(setting['footer_soc_faceb'] != ''):?>
+					<a href="<?=setting['footer_soc_faceb']?>" target="_blank">
+						<i class="icon-facebook px-2 text-white"></i>
+						<!-- فیسبوک -->
+					</a>
+					<?php endif?>
+
+					<?php if(setting['footer_soc_twitt'] != ''):?>
+					<a href="<?=setting['footer_soc_twitt']?>" target="_blank">
 						<i class="icon-twitter px-2 text-white"></i>
 						<!-- توییتر -->
 					</a>
+					<?php endif?>
 				
-					<a href="https://t.me/spri1" target="_blank">
+					<?php if(setting['footer_soc_teleg'] != ''):?>
+					<a href="<?=setting['footer_soc_teleg']?>" target="_blank">
 						<i class="icon-telegram px-2 text-white"></i>
 						<!-- تلگرام -->
 					</a>
+					<?php endif?>
 				
-					<a href="https://www.linkedin.com/company/sharif-policy" target="_blank">
+					<?php if(setting['footer_soc_linked'] != ''):?>
+					<a href="<?=setting['footer_soc_linked']?>" target="_blank">
 						<i class="icon-linkedin px-2 text-white"></i>
 						<!-- لینکدین -->
 					</a>
+					<?php endif?>
 				
-					<a href="https://www.youtube.com/channel/UCPPADaANW176w4KTsfVJ3Lw/featured" target="_blank">
+					<?php if(setting['footer_soc_yt'] != ''):?>
+					<a href="<?=setting['footer_soc_yt']?>" target="_blank">
 						<i class="icon-youtube px-2 text-white"></i>
 						<!-- یوتیوب -->
 					</a>
+					<?php endif?>
 				
 				</div>
 			</div>
@@ -47,135 +61,41 @@
 			<!--Footer Widget Start-->
 			<div class="col-md-4 col-sm-6 pt-5 pb-5">
 				<div class="footer-widget">
-					<h6>پیوندها</h6>
-					<ul>
-						<li><a href="#"><i class="icon-caret-left1"></i> دانشگاه صنعتی شریف</a></li>
-						<li><a href="#"><i class="icon-caret-left1"></i> مجمع تشخیص مصلحت نظام</a></li>
-						<li><a href="#"><i class="icon-caret-left1"></i> فصلنامه نامه علم و فناوری</a></li>
-						<li><a href="#"><i class="icon-caret-left1"></i> رصدخانه مهاجرت ایران</a></li>
-						<li><a href="#"><i class="icon-caret-left1"></i> بنای ایران</a></li>
-						<li><a href="#"><i class="icon-caret-left1"></i> دانشگاه صنعتی شریف</a></li>
-					</ul>
+					<h6><?=setting['footer_title1']?></h6>
+					<?= $this->Query->Navmenu(setting['footer_menu1'],[
+						'div'=>false,
+						'nav'=>false,
+						'ul'=> true,
+						'li_class'=>'',
+						'a_class'=>'text-white2',
+					]);?>
 				</div>
 			</div>
 			<!--Footer Widget End--> 
 
 			<!--Footer Widget Start-->
 			<div class="col-md-3 col-sm-6 pt-5 pb-5">
-				<!-- <div class="twitter-widget">
-					<div class="tw-txt">
-					<h6>@john.flintoff</h6>
-					<p>
-					آدرس: تهران، خیابان آزادی، خیابان حبیب الهی، خیابان شهید قاسمی، جنب دانشکده انرژی - ساختمان آموزش.
-					</p>
-					</div>
-					<div class="tw-footer">
-						تلفکس: 66065140 – 66065139</strong> 
-						<i class="icon-twitter"></i> 
-					</div>
-				</div> -->
-
 				<div class="textwidget text-white">
 					<address>
 						<ul>
-							<li>
-								<i class="icon-university"></i> 
-								<strong>آدرس:</strong> 
-								تهران، خیابان آزادی، خیابان حبیب الهی
-							</li>
-							<li>
-								<i class="icon-envelope-alt"></i> 
-								<strong>ایمیل:</strong> contact@gptt.ssnet.ir
-							</li>
-							<li> 
-								<i class="icon-line-phone-call"></i> 
-								<strong>تلفن تماس:</strong>66065140 – 66065139
-							</li>
+							<?=setting['footer_address']?>
 						</ul>
 					</address>
 				</div>
 			</div>
 			<!--Footer Widget End--> 
 		</div>
-		
-		<!-- <div class="row row1">
-			<div class="col-sm-1 col-2 widget_links mt-5" style1="border-left: 2px solid #1f1e5a;border-right: 2px solid #1f1e5a;">
-				<a href="#" class="social-icon si-small si-rounded si-github bg-white" title="Github">
-					<i class="icon-github"></i>
-					<i class="icon-github"></i>
-				</a>
-				<a href="#" class="social-icon si-small si-rounded si-android bg-white" title="Android">
-					<i class="icon-android"></i>
-					<i class="icon-android"></i>
-				</a>
-				<a href="#" class="social-icon si-small si-rounded icon-steam bg-white" title="ُSteam">
-					<i class="icon-steam"></i>
-					<i class="icon-steam"></i>
-				</a>
-
-				<a href="#" class="social-icon si-small si-rounded si-linkedin bg-white" title="Linkedin">
-					<i class="icon-linkedin"></i>
-					<i class="icon-linkedin"></i>
-				</a>
-
-				<a href="#" class="social-icon si-small si-rounded si-twitter bg-white" title="Twitter">
-					<i class="icon-twitter"></i>
-					<i class="icon-twitter"></i>
-				</a>
-
-				<a href="#" class="social-icon si-small si-rounded si-instagram bg-white" title="Instagram">
-					<i class="icon-instagram"></i>
-					<i class="icon-instagram"></i>
-				</a>
-
-			</div>
-			<div class="col-sm-3 col-10 widget_links mt-5" style1="border-left: 2px solid #1f1e5a;border-right: 2px solid #1f1e5a;">
-				<h2 class="fs-18"><?=setting['footer_mtitle2']?></h2>
-				<?= $this->Query->Navmenu(setting['footer_menu'],[
-					'div'=>false,
-					'nav'=>false,
-					'ul'=> true,
-					'li_class'=>'',
-					'a_class'=>'text-white2',
-				]);?>
-				
-			</div>
-
-			<div class="col-sm-4 col-12 widget_links mt-5" style1="border-left: 2px solid #1f1e5a;border-right: 2px solid #1f1e5a;">
-				<h2 class="fs-18"><?=setting['footer_mtitle2']?></h2>
-				<?= $this->Query->Navmenu(setting['footer_menu'],[
-					'div'=>false,
-					'nav'=>false,
-					'ul'=> true,
-					'li_class'=>'',
-					'a_class'=>'text-white2',
-				]);?>
-				
-			</div>
-
-			<div class="col-sm-4 col-12 widget_links mt-5" style1="border-left: 2px solid #1f1e5a;border-right: 2px solid #1f1e5a;">
-				<h2 class="fs-18"><?=setting['footer_mtitle2']?></h2>
-				<?= $this->Query->Navmenu(setting['footer_menu'],[
-					'div'=>false,
-					'nav'=>false,
-					'ul'=> true,
-					'li_class'=>'',
-					'a_class'=>'text-white2',
-				]);?>
-			</div>
-		</div> -->
 	</div><!-- .footer-widgets-wrap end -->
 </div>
-
 <!-- Copyrights
 ============================================= -->
-<?php if(setting['footer_copy'] != ''):?>
-	<br>
+<?php if(setting['footer_copyt'] != ''):?>
+<br>
 <div id="copyrights">
 	<div class="container">
 		<div class="row col-mb-20">
 			<div class="col-md-12 text-center text-md-center">
-				<?=setting['footer_copy']?>
+				<?=setting['footer_copyt']?>
 			</div>
 		</div>
 	</div>
@@ -188,11 +108,11 @@
 <div id="gotoTop" class="icon-angle-up"></div>
 <?php $this->Func->footer();?>
 <?= $this->html->script([
-'/template/js/plugins.min.js',
-'/template/js/functions.js',
-]);?>
+	'/template/js/plugins.min.js',
+	'/template/js/functions.js',
+	]);?>
 
-<script>
+<script nonce="<?=get_nonce?>">
 
 //http://pure-essence.net/2013/10/25/how-i-made-tiny-carousel-swipeable/
 (function ($) {
@@ -320,7 +240,7 @@ return $wrapper.outerWidth() - options.offset;
 $('#dateCarousel').carouselSwipeable();
 </script>
 
-<script>
+<script nonce="<?=get_nonce?>">
 // Owl Carousel Scripts
 jQuery(window).on( 'pluginCarouselReady', function(){
 $('#oc-teachers').owlCarousel({

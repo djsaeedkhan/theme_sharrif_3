@@ -59,67 +59,73 @@ $results = $result;
 <div id="page-menu" data-mobile-sticky="true">
 <div id="page-menu-wrap">
 	<div class="container">
-		<div class="page-menu-row py-1">
-			<nav class="page-menu-nav one-page-menu">
-				<ul class="page-menu-container">
-					<li class="page-menu-item ml-2" >
-						<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-1"><?=setting['t_moarefi']?></a>
-					</li>
+		<div class="row">
+			<div class="col-sm-2"></div><div class="col-sm-10">
+				<div class="page-menu-row py-1">
+					<nav class="page-menu-nav one-page-menu one-page-menus">
+						<ul class="page-menu-container">
+							<li class="page-menu-item ml-2" >
+								<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-1"><?=setting['t_moarefi']?></a>
+							</li>
 
-					<?php for($i=1;$i<7;$i++):if(isset($metalist['data_title'.$i]) and $metalist['data_title'.$i] != ''):?>
-					<li class="page-menu-item ml-2" >
-						<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-1<?=$i?>">
-							<?=$metalist['data_title'.$i]?>
-						</a>
-					</li>
-					<?php endif;endfor?>
+							<?php for($i=1;$i<7;$i++):if(isset($metalist['data_title'.$i]) and $metalist['data_title'.$i] != ''):?>
+							<li class="page-menu-item ml-2" >
+								<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-1<?=$i?>">
+									<?=$metalist['data_title'.$i]?>
+								</a>
+							</li>
+							<?php endif;endfor?>
 
-					<?php if(isset($metalist['scholars_id0']) and ($metalist['scholars_id0'] != '' or $metalist['scholars_fm0'] != '') ):?>
-					<li class="page-menu-item ml-2">
-						<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-2"><?=setting['t_hamkaran']?></a>
-					</li>
-					<?php endif?>
-					
-					<?php if($metalist['topics'] != ''):?>
-					<li class="page-menu-item ml-2">
-						<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-3"><?=setting['t_houzetakh']?></a>
-					</li>
-					<?php endif?>
+							<?php if(isset($metalist['scholars_id0']) and ($metalist['scholars_id0'] != '' or $metalist['scholars_fm0'] != '') ):?>
+							<li class="page-menu-item ml-2">
+								<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-2"><?=setting['t_hamkaran']?></a>
+							</li>
+							<?php endif?>
+							
+							<?php if($metalist['topics'] != ''):?>
+							<li class="page-menu-item ml-2">
+								<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-3"><?=setting['t_houzetakh']?></a>
+							</li>
+							<?php endif?>
 
-					<?php if(count($this->Query->post('sources',[
-						'contain'=>['PostMetas'],'contain_where' => ['meta_key' => 'centers','meta_value_like' => '"'.$results['id'].'"'],
-						'get_type'=>'all','order' => false,'limit'=>0]))):?>
-					<li class="page-menu-item ml-2">
-						<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-4"><?=setting['t_manabe']?></a>
-					</li>
-					<?php endif?>
+							<?php if(count($this->Query->post('sources',[
+								'contain'=>['PostMetas'],'contain_where' => ['meta_key' => 'centers','meta_value_like' => '"'.$results['id'].'"'],
+								'get_type'=>'all','order' => false,'limit'=>0]))):?>
+							<li class="page-menu-item ml-2">
+								<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-4"><?=setting['t_manabe']?></a>
+							</li>
+							<?php endif?>
 
-					<?php if(count($this->Query->post('projects',[
-						'contain'=>['PostMetas'],'contain_where' => ['meta_key' => 'centers','meta_value_like' => '"'.$results['id'].'"'],
-						'get_type'=>'all','order' => false,'limit'=>0]))):?>
-					<li class="page-menu-item ml-2">
-						<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-5"><?=setting['t_projects']?></a>
-					</li>
-					<?php endif?>
+							<?php if(count($this->Query->post('projects',[
+								'contain'=>['PostMetas'],'contain_where' => ['meta_key' => 'centers','meta_value_like' => '"'.$results['id'].'"'],
+								'get_type'=>'all','order' => false,'limit'=>0]))):?>
+							<li class="page-menu-item ml-2">
+								<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-5"><?=setting['t_projects']?></a>
+							</li>
+							<?php endif?>
 
-					<?php if(count($this->Query->post('events',['contain'=>['PostMetas'],
-						'contain_where' => ['meta_key' => 'centers','meta_value_like' => '"'.$results['id'].'"'],
-						'get_type'=>'all','order' => false,'limit'=>0]))):?>
-					<li class="page-menu-item ml-2">
-						<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-6"><?=setting['t_events']?></a>
-					</li>
-					<?php endif?>
+							<?php if(count($this->Query->post('events',['contain'=>['PostMetas'],
+								'contain_where' => ['meta_key' => 'centers','meta_value_like' => '"'.$results['id'].'"'],
+								'get_type'=>'all','order' => false,'limit'=>0]))):?>
+							<li class="page-menu-item ml-2">
+								<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-6"><?=setting['t_events']?></a>
+							</li>
+							<?php endif?>
 
-					<?php if(isset($metalist['gallery_img1']) and $metalist['gallery_img1'] != ''):?>
-					<li class="page-menu-item ml-2">
-						<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-7"><?=setting['t_gallery']?></a>
-					</li>
-					<?php endif?>
+							<?php if(isset($metalist['gallery_img1']) and $metalist['gallery_img1'] != ''):?>
+							<li class="page-menu-item ml-2">
+								<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-7"><?=setting['t_gallery']?></a>
+							</li>
+							<?php endif?>
 
-				</ul>
-			</nav>
-			<div id="page-menu-trigger"><i class="icon-reorder"></i></div>
+						</ul>
+					</nav>
+					<div id="page-menu-trigger"><i class="icon-reorder"></i></div>
+				</div>
+			</div>
 		</div>
+
+		
 	</div>
 </div>
 </div>

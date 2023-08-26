@@ -43,7 +43,7 @@
     </div>
 </div>
 
-<script type="text/javascript">
+<script nonce="<?=get_nonce?>" type="text/javascript">
     // add row
     var rows = <?=$cnt +1?>;
     $("#addRow").click(function () {

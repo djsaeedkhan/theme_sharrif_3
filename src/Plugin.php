@@ -10,31 +10,31 @@ class Plugin extends BasePlugin
     public $name= 'Template';
     function post_type(){
         return [
-            'scholars'=>array(
+            /* 'blog'=>array(
                 'name'=>array(
-                    'title'=>'همکاران',
-                    'index_header'=>'همکاران','index_add'=>'ثبت جدید',
-                    'single_add'=>'ثبت اطلاعات جدید','single_edit'=>'ویرایش اطلاعات',
-                    'cat_header'=>'دسته بندی اطلاعات','cat_add'=>'ثبت دسته اطلاعات',
-                    'tag_header'=>'برچسب',
-                ),
-                'title'=>true,'editor'=>true,'excerpt'=>false,'author'=>true,'thumbnail'=>true,
-                'comments'=>true,'tag'=>true,'category'=>true,'show_in_menu'=>true,
-                'position'=>105,
-            ),
-            'centers'=>array(
-                'name'=>array(
-                    'title'=>'مراکز وابسته',
-                    'index_header'=>'مراکز وابسته','index_add'=>'ثبت جدید',
+                    'title'=>'وبلاگ',
+                    'index_header'=>'وبلاگ','index_add'=>'ثبت جدید',
                     'single_add'=>'ثبت اطلاعات جدید','single_edit'=>'ویرایش اطلاعات',
                     'cat_header'=>'دسته بندی اطلاعات','cat_add'=>'ثبت دسته اطلاعات',
                     'tag_header'=>'برچسب',
                 ),
                 'title'=>true,'editor'=>true,'excerpt'=>true,'author'=>true,'thumbnail'=>true,
                 'comments'=>true,'tag'=>true,'category'=>true,'show_in_menu'=>true,
-                'position'=>106,
-            ),
-            'projects'=>array(
+                'position'=>101,
+            ), */
+            /* 'video'=>array(
+                'name'=>array(
+                    'title'=>'ویدئو',
+                    'index_header'=>'ویدئو','index_add'=>'ثبت جدید',
+                    'single_add'=>'ثبت اطلاعات جدید','single_edit'=>'ویرایش اطلاعات',
+                    'cat_header'=>'دسته بندی اطلاعات','cat_add'=>'ثبت دسته اطلاعات',
+                    'tag_header'=>'برچسب',
+                ),
+                'title'=>true,'editor'=>true,'excerpt'=>true,'author'=>true,'thumbnail'=>true,
+                'comments'=>true,'tag'=>true,'category'=>true,'show_in_menu'=>true,
+                'position'=>102,
+            ), */
+            'project'=>array(
                 'name'=>array(
                     'title'=>'پروژه ها',
                     'index_header'=>'پروژه ها','index_add'=>'ثبت جدید',
@@ -42,45 +42,21 @@ class Plugin extends BasePlugin
                     'cat_header'=>'دسته بندی اطلاعات','cat_add'=>'ثبت دسته اطلاعات',
                     'tag_header'=>'برچسب',
                 ),
-                'title'=>true,'editor'=>true,'excerpt'=> false,'author'=>true,'thumbnail'=>true,
+                'title'=>true,'editor'=>true,'excerpt'=> true,'author'=>true,'thumbnail'=>true,
                 'comments'=>true,'tag'=>true,'category'=>true,'show_in_menu'=>true,
-                'position'=>107,
+                'position'=>103,
             ),
-            'sources'=>array(
+            'scholars'=>array(
                 'name'=>array(
-                    'title'=>'منابع ',
-                    'index_header'=>'منابع ','index_add'=>'ثبت جدید',
+                    'title'=>'افراد',
+                    'index_header'=>'افراد','index_add'=>'ثبت جدید',
                     'single_add'=>'ثبت اطلاعات جدید','single_edit'=>'ویرایش اطلاعات',
                     'cat_header'=>'دسته بندی اطلاعات','cat_add'=>'ثبت دسته اطلاعات',
                     'tag_header'=>'برچسب',
                 ),
-                'title'=>true,'editor'=>false,'excerpt'=>false,'author'=>true,'thumbnail'=>true,
+                'title'=>true,'editor'=>true,'excerpt'=>true,'author'=>true,'thumbnail'=>true,
                 'comments'=>true,'tag'=>true,'category'=>true,'show_in_menu'=>true,
-                'position'=>108,
-            ),
-            'events'=>array(
-                'name'=>array(
-                    'title'=>'رویدادها',
-                    'index_header'=>'رویدادها','index_add'=>'ثبت جدید',
-                    'single_add'=>'ثبت اطلاعات جدید','single_edit'=>'ویرایش اطلاعات',
-                    'cat_header'=>'دسته بندی اطلاعات','cat_add'=>'ثبت دسته اطلاعات',
-                    'tag_header'=>'برچسب',
-                ),
-                'title'=>true,'editor'=>false,'excerpt'=>false,'author'=>true,'thumbnail'=>true,
-                'comments'=>true,'tag'=>true,'category'=>true,'show_in_menu'=>true,
-                'position'=>109,
-            ),
-            'topics'=>array(
-                'name'=>array(
-                    'title'=>'حوزه ها',
-                    'index_header'=>'حوزه ها','index_add'=>'ثبت جدید',
-                    'single_add'=>'ثبت اطلاعات جدید','single_edit'=>'ویرایش اطلاعات',
-                    'cat_header'=>'دسته بندی اطلاعات','cat_add'=>'ثبت دسته اطلاعات',
-                    'tag_header'=>'برچسب',
-                ),
-                'title'=>true,'editor'=>true,'excerpt'=>false,'author'=>true,'thumbnail'=>true,
-                'comments'=>true,'tag'=>true,'category'=>true,'show_in_menu'=>true,
-                'position'=>110,
+                'position'=>104,
             ),
             'disciplines'=>array(
                 'name'=>array(
@@ -90,9 +66,57 @@ class Plugin extends BasePlugin
                     'cat_header'=>'دسته بندی اطلاعات','cat_add'=>'ثبت دسته اطلاعات',
                     'tag_header'=>'برچسب',
                 ),
-                'title'=>true,'editor'=>true,'excerpt'=>false,'author'=>true,'thumbnail'=>true,
+                'title'=>true,'editor'=>true,'excerpt'=>true,'author'=>true,'thumbnail'=>true,
                 'comments'=>true,'tag'=>true,'category'=>true,'show_in_menu'=>true,
-                'position'=>111,
+                'position'=>105,
+            ),
+            'event'=>array(
+                'name'=>array(
+                    'title'=>'رویدادها',
+                    'index_header'=>'رویدادها','index_add'=>'ثبت جدید',
+                    'single_add'=>'ثبت اطلاعات جدید','single_edit'=>'ویرایش اطلاعات',
+                    'cat_header'=>'دسته بندی اطلاعات','cat_add'=>'ثبت دسته اطلاعات',
+                    'tag_header'=>'برچسب',
+                ),
+                'title'=>true,'editor'=>true,'excerpt'=>true,'author'=>true,'thumbnail'=>true,
+                'comments'=>true,'tag'=>true,'category'=>true,'show_in_menu'=>true,
+                'position'=>106,
+            ),
+            'centers'=>array(
+                'name'=>array(
+                    'title'=>'مراکز',
+                    'index_header'=>'مراکز','index_add'=>'ثبت جدید',
+                    'single_add'=>'ثبت اطلاعات جدید','single_edit'=>'ویرایش اطلاعات',
+                    'cat_header'=>'دسته بندی اطلاعات','cat_add'=>'ثبت دسته اطلاعات',
+                    'tag_header'=>'برچسب',
+                ),
+                'title'=>true,'editor'=>true,'excerpt'=>true,'author'=>true,'thumbnail'=>true,
+                'comments'=>true,'tag'=>true,'category'=>true,'show_in_menu'=>true,
+                'position'=>107,
+            ),
+            'topics'=>array(
+                'name'=>array(
+                    'title'=>'حوزه ها',
+                    'index_header'=>'حوزه ها','index_add'=>'ثبت جدید',
+                    'single_add'=>'ثبت اطلاعات جدید','single_edit'=>'ویرایش اطلاعات',
+                    'cat_header'=>'دسته بندی اطلاعات','cat_add'=>'ثبت دسته اطلاعات',
+                    'tag_header'=>'برچسب',
+                ),
+                'title'=>true,'editor'=>true,'excerpt'=>true,'author'=>true,'thumbnail'=>true,
+                'comments'=>true,'tag'=>true,'category'=>true,'show_in_menu'=>true,
+                'position'=>108,
+            ),
+            'sources'=>array(
+                'name'=>array(
+                    'title'=>'منابع',
+                    'index_header'=>'منابع','index_add'=>'ثبت جدید',
+                    'single_add'=>'ثبت اطلاعات جدید','single_edit'=>'ویرایش اطلاعات',
+                    'cat_header'=>'دسته بندی اطلاعات','cat_add'=>'ثبت دسته اطلاعات',
+                    'tag_header'=>'برچسب',
+                ),
+                'title'=>true,'editor'=>true,'excerpt'=>true,'author'=>true,'thumbnail'=>true,
+                'comments'=>true,'tag'=>true,'category'=>true,'show_in_menu'=>true,
+                'position'=>109,
             ),
         ];
     }
@@ -107,9 +131,9 @@ class Plugin extends BasePlugin
                     ['page' => 'Template.Meta::page'],
                     ['scholars' => 'Template.Meta::scholars'],
                     ['centers' => 'Template.Meta::centers'],
-                    ['projects' => 'Template.Meta::projects'],
+                    ['project' => 'Template.Meta::project'],
                     ['sources' => 'Template.Meta::sources'],
-                    ['events' => 'Template.Meta::events'],
+                    ['event' => 'Template.Meta::events'],
                     ['topics' => 'Template.Meta::topics'],
                 ]; break;
         }
@@ -181,8 +205,8 @@ class Plugin extends BasePlugin
     }
 
     public function preload(){
-        define('template_slug','sharrif');
-        //FuncHelper::do_action('excplgn', ['Challenge','Lms','Shop']);
+        define('template_slug','sharrif_gptt');
+        FuncHelper::do_action('excplgn', ['Challenge','Lms','Shop']);
         FuncHelper::do_action('post_type',self::post_type());
         FuncHelper::do_action('admin_sidemenu', self::posttype_adminmenu());
         FuncHelper::do_action('admin_postwidget', self::post_widget('post'));
@@ -194,7 +218,7 @@ class Plugin extends BasePlugin
     public function config(){
         return [
             'name'=>'Template',
-            'title'=>'وبسایت شریف',
+            'title'=>'وبسایت شریف GPTT',
             'icon'=>'fa fa-item',
             'description'=>'',
             'author'=>'Mahan',
@@ -206,7 +230,7 @@ class Plugin extends BasePlugin
             ],
             'template'=>[
                 'slug'=>'Template',
-                'image'=> Router::url('/template/images/template.png'),
+                'image'=> Router::url('/template/images/template1.png'),
                 'name'=>'شریف',
                 'info'=>'شریف',
                 'version'=>'1.2',

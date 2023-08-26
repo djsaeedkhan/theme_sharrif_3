@@ -9,7 +9,6 @@ define('lang', isset(setting['default_lang'])?setting['default_lang']:'fa');
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="author" content="Sharif" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-
 	<?= $this->html->css([
 		'/template/css/bootstrap.css',
 		(lang == 'fa'?'/template/css/bootstrap-rtl.css':''),
@@ -25,9 +24,8 @@ define('lang', isset(setting['default_lang'])?setting['default_lang']:'fa');
 	<?= $this->html->script([
 		'/template/js/jquery.js',
 	]);?>
-	<title><?= $this->Query->info('name');?><?= $this->fetch('title')!=''?' - '. $this->fetch('title'):'' ?></title>
+	<title><?= $this->Query->Title()?></title>
 	<?= $this->Func->header()?>
-
 	<?php if(setting['morecss'] != ''):?>
 		<style><?=setting['morecss']?></style>
 	<?php endif?>
@@ -46,10 +44,10 @@ define('lang', isset(setting['default_lang'])?setting['default_lang']:'fa');
 						<!-- Logo
 						============================================= -->
 						<div id="logo" class1="col col-sm-auto">
-							<a href="/" class="standard-logo" data-dark-logo="https://gptt.ssnet.ir/img/logo.png">
-								<img src="https://gptt.ssnet.ir/img/logo.png" alt=" Logo"></a>
-							<a href="/" class="retina-logo" data-dark-logo="https://gptt.ssnet.ir/img/logo.png">
-								<img src="https://gptt.ssnet.ir/img/logo.png" alt=" Logo"></a>
+							<a href="/" class="standard-logo" data-dark-logo="<?=setting['header_logo']?>">
+								<img src="<?=setting['header_logo']?>" alt="<?=$this->Query->info('title')?>"></a>
+							<a href="/" class="retina-logo" data-dark-logo="<?=setting['header_logo']?>">
+								<img src="<?=setting['header_logo']?>" alt="<?=$this->Query->info('title')?>"></a>
 						</div><!-- #logo end -->
 
 
@@ -64,18 +62,17 @@ define('lang', isset(setting['default_lang'])?setting['default_lang']:'fa');
 						<div class="header-misc pl-1">
 							<!-- #top-search end -->
 
-
 							<a class="button fw-semibold d-none d-sm-block" style="margin: 0;padding: 17px 10px;cursor: none;background: #d94148;">
-								<form class="row gx-3 align-items-center my-0 my-lg-0">
+								<?= $this->form->create(null,['url'=>'/search','class'=>'row gx-3 align-items-center my-0 my-lg-0','type'=>'get'])?>
 									<div class="col">
 										<input class="form-control" 
-											type="search" placeholder="عبارت جستجو" aria-label="Search" 
+											type="search" name="s" placeholder="عبارت جستجو" aria-label="Search" 
 											style="padding-left: 30px;font-size:14px;background: none;border-color: #FFF;color:#FFF;">
 									</div>
 									<div class="col-auto" style="margin-right: -40px;">
 										<i class="icon-line-search text-white"></i>
 									</div>
-								</form>
+								<?=$this->form->end()?>
 							</a>
 						</div>
 
@@ -91,32 +88,7 @@ define('lang', isset(setting['default_lang'])?setting['default_lang']:'fa');
 							'a_class'=>'menu-link',
 							'a2_class'=>'menu-link',
 						]);?>
-						<!-- <nav class="primary-menu">
-
-							<ul class="menu-container border-end-0 me-0">
-								<li class="menu-item current">
-									<a class="menu-link" href="demo-hostel.html"><div>خانه</div></a>
-								</li>
-
-								<li class="menu-item">
-									<a class="menu-link" href="demo-hostel-about.html"><div>درباره ما</div></a>
-								</li>
-
-								<li class="menu-item">
-									<a class="menu-link" href="demo-hostel-tour.html"><div>آثار علمی</div></a>
-									<ul class="sub-menu-container">
-										<li class="menu-item">
-											<a class="menu-link" href="demo-hostel-single.html"><div>کنفرانس حکمرانی</div></a>
-										</li>
-									</ul>
-								</li>
-
-								<li class="menu-item">
-									<a class="menu-link" href="demo-hostel-contact.html"><div>ارتباط با ما</div></a>
-								</li>
-							</ul>
-
-						</nav> --><!-- #primary-menu end -->
+						<!-- #primary-menu end -->
 
 						<form class="top-search-form" action="search.html" method="get">
 							<input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter.." autocomplete="off">

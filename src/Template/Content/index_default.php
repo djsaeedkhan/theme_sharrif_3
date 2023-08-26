@@ -1,10 +1,9 @@
 <?= $this->element('header');
 include_once('functions.php');
-use Cake\Routing\Router;
-?>
+use Cake\Routing\Router;?>
 <section id="page-title" class="page-title-center page-title1" 
 	style="background-image: url('<?= 
-	(isset(setting['bgindex_'.$post_type]) and setting['bgindex_'.$post_type] !='')?
+	(!is_array($post_type) and isset(setting['bgindex_'.$post_type]) and setting['bgindex_'.$post_type] !='')?
 		setting['bgindex_'.$post_type]:Router::url('/template/img/g1.jpg')?>'); background-size: cover; padding: 120px 0;" 
 	data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;">
 		<div class="bg1"></div>
@@ -40,24 +39,27 @@ use Cake\Routing\Router;
 										]);
 									break;
 								case 'events':
+								case 'event':
 									echo $this->Form->control('cattype',['label'=>false,'style'=>'max-width: 150px;',
 										'type'=>'select','class'=>'form-control valid fs-13','empty'=>'-- '.setting['t_event_type'].' --',
 										'default'=>$this->request->getQuery('cattype')?$this->request->getQuery('cattype'):false,
-										'options'=> $this->Query->category('events',['field'=>['id','title'],'limit'=>0,'find_type'=>'treeList'])
+										'options'=> $this->Query->category('event',['field'=>['id','title'],'limit'=>0,'find_type'=>'treeList'])
 										]);
 									break;
 
 								default:
-									echo $this->Form->control('cattype',['label'=>false,'style'=>'max-width: 150px;',
-										'type'=>'select','class'=>'form-control valid fs-13','empty'=>'--',
-										'default'=>$this->request->getQuery('cattype')?$this->request->getQuery('cattype'):false,
-										'options'=> $this->Query->category($post_type,['field'=>['id','title'],'limit'=>0,'find_type'=>'treeList'])
-										]);
+									if(!is_array($post_type )){
+										echo $this->Form->control('cattype',['label'=>false,'style'=>'max-width: 150px;',
+											'type'=>'select','class'=>'form-control valid fs-13','empty'=>'--',
+											'default'=>$this->request->getQuery('cattype')?$this->request->getQuery('cattype'):false,
+											'options'=> $this->Query->category($post_type,['field'=>['id','title'],'limit'=>0,'find_type'=>'treeList'])
+											]);
+									}
 									break;
 							}?>
 						</li>
 
-						<?php if(in_array($post_type,['scholars','sources','events','disciplines'])):?>
+						<?php if(in_array($post_type,['scholars','sources','events','event','disciplines'])):?>
 						<li class="page-menu-item ml-2">
 							<?= $this->Form->control('topics',['label'=>false,'style'=>'max-width: 150px;',
 								'type'=>'select','class'=>'form-control valid fs-13','empty'=>'-- '.setting['t_houzes'].' --',
@@ -95,6 +97,7 @@ use Cake\Routing\Router;
 										],]);
 									break;
 								case 'events':
+								case 'event':
 									echo $this->Form->control('sort',['label'=>false,'style'=>'max-width: 150px;',
 										'type'=>'select','class'=>'form-control valid fs-13','empty'=>'-- '.setting['t_order'].' --',
 										'default'=>$this->request->getQuery('sort')?$this->request->getQuery('sort'):false,
@@ -158,11 +161,11 @@ use Cake\Routing\Router;
 							$img2 = $this->Query->the_image(['size'=>'full']);
 						?>
 						<article class="portfolio-item col-12 news-box col-sm-<?= in_array($post_type,['scholars','projects'])?'3 tip1':'6 tip2'?>">
-							<?= (in_array($post_type,['sources','events','page']))?
+							<?= ( is_array($post_type) or in_array($post_type,['sources','events','event','page','scholars']))?
 								'<div class="grid-inner row1 align-items-center1 no-gutters bg-white br-0 cls99" ><div class="row">':
 								'<div class="grid-inner bg-white br-0" >';?>
 
-								<?=  (in_array($post_type,['sources','events','page']))?'<div class="col-lg-4">':'';?>
+								<?=  (is_array($post_type) or in_array($post_type,['sources','events','event','page']))?'<div class="col-lg-4">':'';?>
 									<div class="portfolio-image">
 										<a href="<?= $this->Query->the_permalink()?>">
 											<?= $this->html->image($img !=''?$img:setting['default_image'])?>
@@ -184,13 +187,13 @@ use Cake\Routing\Router;
 											<div class="bg-overlay-bg dark" data-hover-animate="fadeIn"></div>
 										</div>
 									</div>
-								<?=  (in_array($post_type,['sources','events','page']))?'</div>':'';?>
+								<?=  (is_array($post_type) or in_array($post_type,['sources','events','event','page']))?'</div>':'';?>
 
-								<?= (in_array($post_type,['sources','events','page']))?
+								<?= (is_array($post_type) or in_array($post_type,['sources','events','event','page']))?
 									'<div class="col-lg-8">':
 									'<div class="pt-1 px-1" style="padding-left:15px;padding-right:15px;">';?>
 
-								<?= (in_array($post_type,['sources','events','page']))?
+								<?= (is_array($post_type) or in_array($post_type,['sources','events','event','page']))?
 									'<div class="cls999 pt-3 pb-0 px-lg-1">':
 									'<div class="pt-1 px-1" style="padding-left:15px;padding-right:15px;">';?>
 										<div class="portfolio-desc ">
@@ -226,23 +229,22 @@ use Cake\Routing\Router;
 										</div>
 
 										<?php if($this->Query->is_tags($result) and $post_type != 'page'){?>
-										<div class="cls9 px-2 px-sm-0">
-											<hr class="hr1" />
-											<div class="tagcloud clearfix bottommargin1">
-												<?= $this->Query->tags('',$result,['limit'=>2,'split'=>'','limit_text'=>8]);?>
+											<div class="cls9 px-2 px-sm-0">
+												<hr class="hr1" />
+												<div class="tagcloud clearfix bottommargin1">
+													<?= $this->Query->tags('',$result,['limit'=>2,'split'=>'','limit_text'=>10]);?>
+												</div>
 											</div>
-										</div>
 										<?php }?>
 
 										<div class="news-box-f">
 											<a href="<?= $this->Query->the_permalink();?>"><i class="icon-line-arrow-left"></i></a>
 										</div>
 
-
 									</div>
 								</div>
 							</div>
-							<?= (in_array($post_type,['sources','events','page']))?'</div>':'';?>
+							<?= (is_array($post_type) or in_array($post_type,['sources','events','event','page']))?'</div>':'';?>
 
 						</article>
 						<?php endforeach;?>
@@ -253,19 +255,28 @@ use Cake\Routing\Router;
 							$this->Paginator->options([
 								'url' => [
 									'plugin'=>'Website',
-									'controller' =>$post_type   ,
+									'controller' =>!is_array($post_type )?$post_type :false  ,
 									'action' =>'index' ,
 									$this->request->getParam('catid'),
 									$this->request->getParam('catslug'),
+									
+									//added 1402/4/21
+									'?'=>$this->request->getQuery()
+								]
+							]);
+						else:
+							$this->Paginator->options([
+								'url' => [
+									'plugin'=>'Website',
+									'controller' =>!is_array($post_type )?$post_type :false  ,
+									'action' =>'index' ,
+									$this->request->getParam('catid'),
+									$this->request->getParam('catslug'),
+									
+									//added 1402/4/21
 									//'?'=>$this->request->getQuery()
 								]
 							]);
-						/* else
-							$this->Paginator->options([
-								'url' => [
-									'controller' => $this->request->getParam('action'),
-									'action' => $post_type ]
-							]); */
 						endif;
 						
                         $this->Paginator->setTemplates([

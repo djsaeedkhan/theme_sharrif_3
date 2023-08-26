@@ -6,7 +6,7 @@ Router::plugin(
     'Template',
     ['path' => '/template'],
     function (RouteBuilder $routes) {
-        $routes->connect('/', ['controller' => 'Content', 'action' => 'index', 'home']);
+        $routes->connect('/', ['controller' => 'Content', 'action' => 'index', 'index']);
         $routes->fallbacks(DashedRoute::class);
     }
 );
