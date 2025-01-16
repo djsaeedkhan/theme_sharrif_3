@@ -34,7 +34,7 @@ class Plugin extends BasePlugin
                 'comments'=>true,'tag'=>true,'category'=>true,'show_in_menu'=>true,
                 'position'=>102,
             ), */
-            'project'=>array(
+            'projects'=>array(
                 'name'=>array(
                     'title'=>'پروژه ها',
                     'index_header'=>'پروژه ها','index_add'=>'ثبت جدید',
@@ -70,7 +70,7 @@ class Plugin extends BasePlugin
                 'comments'=>true,'tag'=>true,'category'=>true,'show_in_menu'=>true,
                 'position'=>105,
             ),
-            'event'=>array(
+            'events'=>array(
                 'name'=>array(
                     'title'=>'رویدادها',
                     'index_header'=>'رویدادها','index_add'=>'ثبت جدید',
@@ -131,9 +131,9 @@ class Plugin extends BasePlugin
                     ['page' => 'Template.Meta::page'],
                     ['scholars' => 'Template.Meta::scholars'],
                     ['centers' => 'Template.Meta::centers'],
-                    ['project' => 'Template.Meta::project'],
+                    ['projects' => 'Template.Meta::projects'],
                     ['sources' => 'Template.Meta::sources'],
-                    ['event' => 'Template.Meta::events'],
+                    ['events' => 'Template.Meta::events'],
                     ['topics' => 'Template.Meta::topics'],
                 ]; break;
         }

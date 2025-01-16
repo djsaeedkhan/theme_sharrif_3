@@ -69,6 +69,7 @@ h1, h2, h3, h4, h5, h6, #logo,.menu-link, #primary-menu ul li > a, #primary-menu
 }
 .boxed > div{
 	padding:20px;
+	text-align: justify;
 }
 .boxed > div:nth-child(odd){
 	background-color: #f2f2fe;

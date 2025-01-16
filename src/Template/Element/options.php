@@ -103,7 +103,11 @@ $menu = [
                 'title'=>'چپ - تب ها',
                 'fields'=>[
                     ['name'=>'bx22_title', 'title'=>'عنوان تب', 'col'=> 12] ,
-                    ['name'=>'bx22_titles1', 'title'=>'مطلب 1: '.'عنوان', 'col'=> 12] ,
+                    ['name'=>'bx22_lists', 'title'=>'لیست پست ها', 'col'=> 12,'type'=>'select',
+                    'class'=>'select2','multiple'=>'multiple','data'=>
+                    $this->Query->post("events",['field'=>['id','title'],'limit'=>0, 'find_type'=>'list'])
+                    ] ,
+                    /* ['name'=>'bx22_titles1', 'title'=>'مطلب 1: '.'عنوان', 'col'=> 12] ,
                     ['name'=>'bx22_date1', 'title'=>'تاریخ (روز و ماه)', 'col'=> 6] ,
                     ['name'=>'bx22_year1', 'title'=>'تاریخ (سال)', 'col'=> 6] ,
                     ['name'=>'bx22_img1', 'title'=>'آدرس تصویر', 'pholder'=>'http://', 'class'=>'ltr', 'col'=> 6, 'select_img'=> true] ,
@@ -132,7 +136,7 @@ $menu = [
                     ['name'=>'bx22_year5', 'title'=>'تاریخ (سال)', 'col'=> 6] ,
                     ['name'=>'bx22_img5', 'title'=>'آدرس تصویر', 'pholder'=>'http://', 'class'=>'ltr', 'col'=> 6, 'select_img'=> true] ,
                     ['name'=>'bx22_link5', 'title'=>'لینک مقصد', 'pholder'=>'http://', 'class'=>'ltr', 'col'=> 6] ,
-
+ */
                 ]
             ],
         ],
@@ -342,18 +346,18 @@ $menu = [
                     ['break'=>'تصاویر صفحه index'],
                     ['name'=>'bgindex_scholars', 'title'=>'تصویر افراد', 'pholder'=> 'http://', 'class'=>'ltr', 'select_img'=> true, 'col'=> 12],
                     ['name'=>'bgindex_centers', 'title'=>'تصویر مراکز', 'pholder'=> 'http://', 'class'=>'ltr', 'select_img'=> true, 'col'=> 12],
-                    ['name'=>'bgindex_project', 'title'=>'تصویر پروژه', 'pholder'=> 'http://', 'class'=>'ltr', 'select_img'=> true, 'col'=> 12],
+                    ['name'=>'bgindex_projects', 'title'=>'تصویر پروژه', 'pholder'=> 'http://', 'class'=>'ltr', 'select_img'=> true, 'col'=> 12],
                     ['name'=>'bgindex_sources', 'title'=>'تصویر منابع', 'pholder'=> 'http://', 'class'=>'ltr', 'select_img'=> true, 'col'=> 12],
-                    ['name'=>'bgindex_event', 'title'=>'تصویر رویدادها', 'pholder'=> 'http://', 'class'=>'ltr', 'select_img'=> true, 'col'=> 12],
+                    ['name'=>'bgindex_events', 'title'=>'تصویر رویدادها', 'pholder'=> 'http://', 'class'=>'ltr', 'select_img'=> true, 'col'=> 12],
                     ['name'=>'bgindex_topics', 'title'=>'تصویر حوزه', 'pholder'=> 'http://', 'class'=>'ltr', 'select_img'=> true, 'col'=> 12],
                     ['name'=>'bgindex_disciplines', 'title'=>'تصویر رشته', 'pholder'=> 'http://', 'class'=>'ltr', 'select_img'=> true, 'col'=> 12],
                     
                     ['break'=>'تصاویر صفحه Single'],
                     ['name'=>'bgsingle_scholars', 'title'=>'تصویر افراد', 'pholder'=> 'http://', 'class'=>'ltr', 'select_img'=> true, 'col'=> 12],
                     ['name'=>'bgsingle_centers', 'title'=>'تصویر مراکز', 'pholder'=> 'http://', 'class'=>'ltr', 'select_img'=> true, 'col'=> 12],
-                    ['name'=>'bgsingle_project', 'title'=>'تصویر پروژه', 'pholder'=> 'http://', 'class'=>'ltr', 'select_img'=> true, 'col'=> 12],
+                    ['name'=>'bgsingle_projects', 'title'=>'تصویر پروژه', 'pholder'=> 'http://', 'class'=>'ltr', 'select_img'=> true, 'col'=> 12],
                     ['name'=>'bgsingle_sources', 'title'=>'تصویر منابع', 'pholder'=> 'http://', 'class'=>'ltr', 'select_img'=> true, 'col'=> 12],
-                    ['name'=>'bgsingle_event', 'title'=>'تصویر رویدادها', 'pholder'=> 'http://', 'class'=>'ltr', 'select_img'=> true, 'col'=> 12],
+                    ['name'=>'bgsingle_events', 'title'=>'تصویر رویدادها', 'pholder'=> 'http://', 'class'=>'ltr', 'select_img'=> true, 'col'=> 12],
                     ['name'=>'bgsingle_topics', 'title'=>'تصویر حوزه', 'pholder'=> 'http://', 'class'=>'ltr', 'select_img'=> true, 'col'=> 12],
                     ['name'=>'bgsingle_disciplines', 'title'=>'تصویر رشته', 'pholder'=> 'http://', 'class'=>'ltr', 'select_img'=> true, 'col'=> 12],
                 ]

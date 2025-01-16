@@ -157,7 +157,7 @@ include_once('functions.php');
 						}
 					break;
 
-					case 'event':
+					case 'events':
 						echo $this->Query->the_category($result,['link'=>false]);
 						
 						$author = author_list($metalist);
@@ -226,10 +226,13 @@ include_once('functions.php');
 									<?php
 									$t_manabe = $this->Query->post('sources',[
 										'contain'=>['PostMetas'],
+										'limit'=>10000,
 										'contain_where' => [
 											'meta_key_like' => 'scholars',
 											'meta_value_like' => '"'.$result['id'].'"'],
-										'get_type'=>'all','order' => false]);
+										'get_type'=>'all',
+										'order' => 'Posts.id desc'
+									]);
 									if(count($t_manabe)):?>
 									<li class="page-menu-item <?=(lang=='fa')?'ml-4':'mr-4'?>">
 										<a href="#" class="text-dark" data-href="#section-41">
@@ -241,10 +244,13 @@ include_once('functions.php');
 									<?php
 									$t_projects = $this->Query->post('projects',[
 										'contain'=>['PostMetas'],
+										'limit'=>10000,
 										'contain_where' => [
 											'meta_key_like' => 'scholars',//$post_type ,
 											'meta_value_like' => '"'.$result['id'].'"'],
-										'get_type'=>'all','order' => false]);
+										'get_type'=>'all',
+										'order' => 'Posts.id desc'
+									]);
 									if(count($t_projects)):?>
 									<li class="page-menu-item <?=(lang=='fa')?'ml-4':'mr-4'?>">
 										<a href="#" class="text-dark" data-href="#section-42">
@@ -254,13 +260,16 @@ include_once('functions.php');
 									<?php endif?>
 
 									<?php
-									$t_events = $this->Query->post('event',[
+									$t_events = $this->Query->post('events',[
 										'contain'=>['PostMetas'],
 										'order'=>['created'=>'desc'],
+										'limit'=>10000,
 										'contain_where' => [
 											'meta_key_like' => 'scholars',
 											'meta_value_like' => '"'.$result['id'].'"'],
-										'get_type'=>'all','order' => false]);
+										'get_type'=>'all',
+										'order' => 'Posts.id desc'
+									]);
 									if(count($t_events)):?>
 									<li class="page-menu-item <?=(lang=='fa')?'ml-4':'mr-4'?>">
 										<a href="#" class="text-dark" data-href="#section-43">
@@ -300,11 +309,11 @@ include_once('functions.php');
 		<div class="container-fluid bottommargin-lg1 clearfix">
 			<div class="row">
 				<?php include_once('sidebar.php')?>
-				<div class="col-lg-9 boxed 1pt-4 1pb-5 p-0" style="background: #FFF;">
+				<div class="col-lg-9 boxed 1pt-4 1pb-5 px-0 px-sm-5" style="background: #FFF;">
 
 					<?php if($this->Query->the_content() != '' ):?>
 						<div id="section-0" 
-							class="section m-0 dark1 min-vh-25 min-vh-lg-25 pr-md-5 pl-md-5 text-justify"
+							class="section m-0 dark1 min-vh-25 min-vh-lg-25 pt-5 px-3 px-md-6 text-justify"
 							style="line-height: 30px !important;">
 							<?php 
 							$txt = $this->Query->the_content();
@@ -314,19 +323,19 @@ include_once('functions.php');
 									data-readmore-trigger-close="<?=setting['t_seeless']?> <i class='icon-angle-up'></i>"  data-readmore-size="35rem"
 									class="text-justify">
 										<div class="text-justify">
-											<?= strip_tags(trim($txt),'<video><source><br><p><a><ul><li><img><div><iframe>') ?>
+											<?= strip_tags(trim($txt),strip_tags_list);?>
 										</div>
 									<a href="#" class="btn btn-link text-primary read-more-trigger"></a>
 								</div>
 							<?php else:?>
-								<?= strip_tags(trim($txt),'<video><source><br><p><a><ul><li><img><div><iframe>') ?>
+								<?= strip_tags(trim($txt),strip_tags_list) ?>
 							<?php endif;?>
 						</div>
 					<?php endif;?>
 					
 					<?php for($i=1;$i<7;$i++):if(isset($metalist['data_title'.$i]) and $metalist['data_title'.$i] != ''):?>
 						<div id="section-<?=$i?>" 
-							class="section m-0 dark1 min-vh-25 min-vh-lg-25 pr-md-5 pl-md-5 text-justify"
+							class="section m-0 dark1 min-vh-25 min-vh-lg-25 pt-5 px-3 px-md-6 text-justify"
 							style="line-height: 30px !important;">
 							<div class="title-block1 fancy-title title-right title-border mb-4">
 								<h4 style="color: #d94148;">
@@ -341,12 +350,12 @@ include_once('functions.php');
 									data-readmore-trigger-close="<?=setting['t_seeless']?> <i class='icon-angle-up'></i>"  data-readmore-size="35rem"
 									class="text-justify">
 										<div class="text-justify">
-											<?= strip_tags(trim($metalist['data_text'.$i]),'<video><source><br><p><a><ul><li><img><div><iframe>') ?>
+											<?= strip_tags(trim($metalist['data_text'.$i]),strip_tags_list);?>
 										</div>
 									<a href="#" class="btn btn-link text-primary read-more-trigger"></a>
 								</div>
 							<?php else:?>
-								<?= strip_tags(trim($metalist['data_text'.$i]),'<video><source><br><p><a><ul><li><img><div><iframe>') ?>
+								<?= strip_tags(trim($metalist['data_text'.$i]),strip_tags_list) ?>
 							<?php endif;?>
 							
 						</div>
@@ -358,14 +367,23 @@ include_once('functions.php');
 							<h2><?=setting['t_manabe']?></h2>
 						</div>
 
+						<?php if(count($t_manabe) > 9):?>
+							<div data-readmore="false" data-readmore-trigger-open="<br><?=setting['t_seeall']?> <i class='icon-angle-down'></i>" 
+									data-readmore-trigger-close="<br><?=setting['t_seeless']?> <i class='icon-angle-up'></i>"  data-readmore-size="25rem"
+									class="text-justify">
+								<div class="text-justify" style="padding-bottom: 60px;">
+						<?php endif?>
+
 						<div class="posts-sm row col-mb-30" id="home-recent-news">
 							<?php global $result;foreach($t_manabe as $tmp):
-								$result = $tmp;?>
+								$result = $tmp;
+								$img = $this->Query->postimage('thumbnail',$tmp);
+								?>
 								<div class="entry col-6 col-sm-4 pb-0 mb-2">
 									<div class="grid-inner row no-gutters cls6">
 										<div class="col-auto">
 											<div class="entry-image" style="width: 85px;">
-												<?= $this->html->image($this->Query->postimage('thumbnail',$tmp),['alt'=> $tmp['title'] ])?>
+												<?= $img !=''?$this->html->image($img ,['alt'=> $tmp['title'] ]):''?>
 											</div>
 										</div>
 										<div class="col <?=(lang=='fa')?'pr-3 p-0':'pl-3 p-0';?>">
@@ -380,6 +398,14 @@ include_once('functions.php');
 								</div>
 							<?php endforeach;$result = $result_bk;?>
 						</div>
+
+						<?php if(count($t_manabe) > 9):?>
+							</div>
+							<br><br>
+								<a href="#" class="btn btn-link text-primary read-more-trigger"></a>
+							</div>
+						<?php endif?>
+
 					</div>
 					<?php endif;?>
 
@@ -389,6 +415,13 @@ include_once('functions.php');
 						<div class="title-block bottommargin-lg1" id="section-42">
 							<h2><?=setting['t_projects']?></h2>
 						</div>
+
+						<?php if(count($t_projects) > 9):?>
+							<div data-readmore="false" data-readmore-trigger-open="<br><?=setting['t_seeall']?> <i class='icon-angle-down'></i>" 
+									data-readmore-trigger-close="<br><?=setting['t_seeless']?> <i class='icon-angle-up'></i>"  data-readmore-size="25rem"
+									class="text-justify">
+								<div class="text-justify" style="padding-bottom: 60px;">
+						<?php endif?>
 
 						<div class="posts-sm row col-mb-30" id="home-recent-news">
 							<?php global $result;foreach($t_projects as $tmp):
@@ -412,6 +445,13 @@ include_once('functions.php');
 								</div>
 							<?php endforeach;$result = $result_bk;?>
 						</div>
+
+						<?php if(count($t_projects) > 9):?>
+							</div>
+							<br><br>
+								<a href="#" class="btn btn-link text-primary read-more-trigger"></a>
+							</div>
+						<?php endif?>
 						<br><br>
 					</div>
 					<?php endif;?>
@@ -422,7 +462,15 @@ include_once('functions.php');
 						<div class="title-block bottommargin-lg1" id="section-43">
 							<h2><?=setting['t_events']?></h2>
 						</div>
+
+						<?php if(count($t_events) > 9):?>
+							<div data-readmore="false" data-readmore-trigger-open="<br><?=setting['t_seeall']?> <i class='icon-angle-down'></i>" 
+									data-readmore-trigger-close="<br><?=setting['t_seeless']?> <i class='icon-angle-up'></i>"  data-readmore-size="25rem"
+									class="text-justify">
+								<div class="text-justify" style="padding-bottom: 60px;">
+						<?php endif?>
 						<div class="posts-sm row col-mb-30" id="home-recent-news">
+	
 							<?php global $result;foreach($t_events as $tmp):
 								$result = $tmp;?>
 								<div class="entry col-6 col-sm-4 pb-0 mb-2">
@@ -444,6 +492,13 @@ include_once('functions.php');
 								</div>
 							<?php endforeach;$result = $result_bk;?>
 						</div>
+						<?php if(count($t_events) > 9):?>
+							</div>
+							<br><br>
+								<a href="#" class="btn btn-link text-primary read-more-trigger"></a>
+							</div>
+						<?php endif?>
+
 					</div>
 					<?php endif;?>
 
@@ -499,7 +554,8 @@ include_once('functions.php');
 		.boxed > div:nth-child(odd) .read-more-mask{
 			background-image: linear-gradient(rgba(255, 255, 255, 0), rgb(242 242 254)) !important;
 		}
-		.gg1 .read-more-wrap-open{
+		.gg1 .read-more-wrap-open,
+		.read-more-wrap-open{
 			height:inherit !important;
 		}
 		.entry-title h4 {
@@ -508,6 +564,13 @@ include_once('functions.php');
 			justify-content: center;
 			flex-flow: column;
 			height: 87px;
+		}
+		.section p img{
+			width: 100% !important;
+			height: 100% !important;
+		}
+		.read-more-mask{
+			height: 40% !important;
 		}
 		</style>
 	</div>

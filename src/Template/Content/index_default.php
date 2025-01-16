@@ -39,11 +39,10 @@ use Cake\Routing\Router;?>
 										]);
 									break;
 								case 'events':
-								case 'event':
 									echo $this->Form->control('cattype',['label'=>false,'style'=>'max-width: 150px;',
 										'type'=>'select','class'=>'form-control valid fs-13','empty'=>'-- '.setting['t_event_type'].' --',
 										'default'=>$this->request->getQuery('cattype')?$this->request->getQuery('cattype'):false,
-										'options'=> $this->Query->category('event',['field'=>['id','title'],'limit'=>0,'find_type'=>'treeList'])
+										'options'=> $this->Query->category('events',['field'=>['id','title'],'limit'=>0,'find_type'=>'treeList'])
 										]);
 									break;
 
@@ -59,7 +58,7 @@ use Cake\Routing\Router;?>
 							}?>
 						</li>
 
-						<?php if(in_array($post_type,['scholars','sources','events','event','disciplines'])):?>
+						<?php if(in_array($post_type,['scholars','sources','events','disciplines'])):?>
 						<li class="page-menu-item ml-2">
 							<?= $this->Form->control('topics',['label'=>false,'style'=>'max-width: 150px;',
 								'type'=>'select','class'=>'form-control valid fs-13','empty'=>'-- '.setting['t_houzes'].' --',
@@ -97,7 +96,6 @@ use Cake\Routing\Router;?>
 										],]);
 									break;
 								case 'events':
-								case 'event':
 									echo $this->Form->control('sort',['label'=>false,'style'=>'max-width: 150px;',
 										'type'=>'select','class'=>'form-control valid fs-13','empty'=>'-- '.setting['t_order'].' --',
 										'default'=>$this->request->getQuery('sort')?$this->request->getQuery('sort'):false,
@@ -157,23 +155,25 @@ use Cake\Routing\Router;?>
 						global $result;
 						foreach($data as $result):
 							$metalist = $this->Func->MetaList($result);
+							//$metalist = isset($result['post_metas'])?$result['post_metas']:$this->Func->MetaList($result);
+
 							$img = $this->Query->the_image(['size'=>'medium']);
-							$img2 = $this->Query->the_image(['size'=>'full']);
+							//$img2 = $this->Query->the_image(['size'=>'full']);
 						?>
 						<article class="portfolio-item col-12 news-box col-sm-<?= in_array($post_type,['scholars','projects'])?'3 tip1':'6 tip2'?>">
-							<?= ( is_array($post_type) or in_array($post_type,['sources','events','event','page','scholars']))?
+							<?= ( is_array($post_type) or in_array($post_type,['sources','events','page','scholars']))?
 								'<div class="grid-inner row1 align-items-center1 no-gutters bg-white br-0 cls99" ><div class="row">':
 								'<div class="grid-inner bg-white br-0" >';?>
 
-								<?=  (is_array($post_type) or in_array($post_type,['sources','events','event','page']))?'<div class="col-lg-4">':'';?>
+								<?=  (is_array($post_type) or in_array($post_type,['sources','events','page']))?'<div class="col-lg-4">':'';?>
 									<div class="portfolio-image">
 										<a href="<?= $this->Query->the_permalink()?>">
-											<?= $this->html->image($img !=''?$img:setting['default_image'])?>
+											<?= isset($img)?$this->html->image($img !=''?$img:setting['default_image']):''?>
 										</a>
 
 										<div class="bg-overlay">
 											<div class="bg-overlay-content dark" data-hover-animate="fadeIn">
-												<a href="<?=Router::url($img2)?>" class="overlay-trigger-icon bg-light text-dark" 
+												<a href="<?=isset($img2)?$Router::url($img2):''?>" class="overlay-trigger-icon bg-light text-dark" 
 													data-hover-animate="fadeInDownSmall" 
 													data-hover-animate-out="fadeOutUpSmall" 
 													data-hover-speed="350" data-lightbox="image" 
@@ -187,13 +187,13 @@ use Cake\Routing\Router;?>
 											<div class="bg-overlay-bg dark" data-hover-animate="fadeIn"></div>
 										</div>
 									</div>
-								<?=  (is_array($post_type) or in_array($post_type,['sources','events','event','page']))?'</div>':'';?>
+								<?=  (is_array($post_type) or in_array($post_type,['sources','events','page']))?'</div>':'';?>
 
-								<?= (is_array($post_type) or in_array($post_type,['sources','events','event','page']))?
+								<?= (is_array($post_type) or in_array($post_type,['sources','events','page']))?
 									'<div class="col-lg-8">':
 									'<div class="pt-1 px-1" style="padding-left:15px;padding-right:15px;">';?>
 
-								<?= (is_array($post_type) or in_array($post_type,['sources','events','event','page']))?
+								<?= (is_array($post_type) or in_array($post_type,['sources','events','page']))?
 									'<div class="cls999 pt-3 pb-0 px-lg-1">':
 									'<div class="pt-1 px-1" style="padding-left:15px;padding-right:15px;">';?>
 										<div class="portfolio-desc ">
@@ -203,10 +203,13 @@ use Cake\Routing\Router;?>
 													echo $p = $this->Query->the_category($result,['link'=>false]);
 
 													if(isset($metalist['topics']) and isset($metalist['topics'][0])){
-														$temps = $this->Query->post('scholars',['contain'=>['PostMetas'],
+														$temps = $this->Query->post('scholars',[
+															'contain'=>false,
+															'field'=>['title'],
 															'get_type'=>'first',
 															'id' => $metalist['topics'][0],
 															'order' => false]);
+															//var_dump($temps );
 														if($p != '' and (isset($temps['title']) and $temps['title'] !=''))
 															echo ' <strong>|</strong> ';
 														echo (isset($temps['title']))?$temps['title']:'';
@@ -221,9 +224,9 @@ use Cake\Routing\Router;?>
 
 												<div class="fs-13" style="width:100%;margin-top:10px;">
 													<?php
-													global $text_trim;
+													/* global $text_trim;
 													$text_trim = true;
-													echo author_list($metalist)?>
+													echo author_list($metalist) */?>
 												</div>
 											</div>
 										</div>
@@ -244,7 +247,7 @@ use Cake\Routing\Router;?>
 									</div>
 								</div>
 							</div>
-							<?= (is_array($post_type) or in_array($post_type,['sources','events','event','page']))?'</div>':'';?>
+							<?= (is_array($post_type) or in_array($post_type,['sources','events','page']))?'</div>':'';?>
 
 						</article>
 						<?php endforeach;?>

@@ -14,7 +14,40 @@
 		<section class="Mayor-video-msg">
 			<div class="container pt-3">
 				<div id="slider-services" class="owl-carousel owl-rtl carousel-widget" data-margin="20" data-loop="true" data-nav="false" data-pagi="true" data-autoplay="5000" data-items-sm="1" data-items-xs="1" data-items="1" data-items-md="1" data-items-xl="1">
-					<?php for($i=($maxrow-1);$i>=0;$i--): if(setting['slider__title'.$i] != ''):?>
+					<?php foreach($this->Func->SliderListGet() as $tmp):?>
+					<div class="oc-item">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-4 col-sm-5"> 
+									<!-- Msg Start-->
+									<div class="city-tour gallery"> 
+										<strong><?= $tmp['label'] != ""?$tmp['label']:$tmp['title']?></strong> 
+										<a href="<?= $tmp['url']?>" data-rel="prettyPhoto" title="<?= $tmp['title']?>">
+										</a> 
+										<img src="<?= $tmp['image']?>" alt="<?= $tmp['title']?>"> 
+									</div>
+									<!-- Msg End--> 
+								</div>
+								<div class="col-md-8 col-sm-7">
+									<div class="Mayor-welcome">
+										<h5>
+											<a href="<?= $tmp['url']?>" class="text-white">
+												<?= $tmp['title']?>
+											</a>
+										</h5>
+										<p class="text-justify">
+											<?= $tmp['descr']?>
+										</p>
+										<!-- <h6></h6>
+										<strong></strong>  -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<?php endforeach;?>
+					
+					<?php for($i=($maxrow-1);$i>=0;$i--): if(isset(setting['slider__title'.$i]) and setting['slider__title'.$i] != ''):?>
 					<div class="oc-item">
 						<div class="container">
 							<div class="row">
@@ -208,13 +241,13 @@
 						<div class="fslider flex-thumb-grid grid-5 bottommargin-lg1" data-pagi="false" data-arrows="false" data-thumbs="true">
 							<div class="flexslider">
 								<div class="slider-wrap">
-									<?php for($i=0;$i<$maxrow;$i++):if(setting['bx21_title'.$i] != ''):?>
+									<?php for($i=$maxrow;$i>=0;$i--):if(setting['bx21_title'.$i] != ''):?>
 									<div class="slide" data-thumb="<?=setting['bx21_img'.$i]?>">
 										<a href="<?=setting['bx21_link'.$i]?>"><div class="event-big">
 											<div class="event-cap">
 												<h5><?=setting['bx21_title'.$i]?></h5>
 												<ul>
-												<li><i class="icon-line-help"></i> <?=setting['bx21_date'.$i]?></li>
+												<li class="d-flex"><i class="icon-line-help"></i> <div style="direction: rtl;"><?=setting['bx21_date'.$i]?></div></li>
 												<li><i class="icon-line-help"></i> <?=setting['bx21_loc'.$i]?></li>
 												</ul>
 												<p><?=setting['bx21_desc'.$i]?></p>
@@ -245,20 +278,29 @@
 								<?php for($i=0;$i<$maxrow;$i++):if(setting['bx22_title'.$i] != ''):?>
 								<div class="tab-content" id="tabs-<?=$i?>">
 
-									<?php for($j=6;$j>0;$j--):if(isset(setting['bx22_titles'.$j.$i]) and setting['bx22_titles'.$j.$i] != ''):?>
+									<?php 
+									$tmps = $this->Query->post('events',[
+										'contain'=>['PostMetas'],'get_type'=>'all',
+										'id' => setting['bx22_lists'.$i],'order' =>['Posts.created' =>'desc']]);
+									  if($tmps){
+										global $result;
+										foreach($tmps as $result):
+											$img2 = $this->Query->the_image(['size'=>'thumbnail']);
+										?>
 									<!--Event List Start-->
 									<ul class="event-list">
-										<li><img src="<?=setting['bx22_img'.$j.$i]?>" alt="<?=setting['bx22_titles'.$j.$i]?>"></li>
+										<li><?= $img2 != ''?
+											'<img src="'.$img2.'" alt="'.$this->Query->the_title().'">':''?></li>
 										<li class="el-title">
-											<h6><a href="<?=setting['bx22_link'.$j.$i]?>"><?=setting['bx22_titles'.$j.$i]?></a></h6>
+											<h6><a href="<?= $this->Query->the_permalink()?>"><?= $this->Query->the_title()?></a></h6>
 										</li>
 										<li>
-											<strong class="edate"><?=setting['bx22_date'.$j.$i]?></strong>
-											<strong class="etime"><?=setting['bx22_year'.$j.$i]?></strong>
+											<strong class="edate"><?= $this->Query->the_time($result,'Y/m/d')?></strong>
+											<!-- <strong class="etime"><?= $result['created']->format('H:s');?></strong> -->
 										</li>
 									</ul>
 									<!--Event List End--> 
-									<?php endif;endfor?>
+									<?php endforeach; }?>
 									
 								</div>
 								<?php endif;endfor?>

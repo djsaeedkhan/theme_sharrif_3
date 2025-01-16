@@ -89,7 +89,7 @@ $results = $result;
 							<?php endif?>
 
 							<?php if(count($this->Query->post('sources',[
-								'contain'=>['PostMetas'],'contain_where' => ['meta_key' => $post_type, 'meta_value_like' => '"'.$results['id'].'"'],
+								'contain'=>['PostMetas'],'contain_where' => ['meta_key' => 'centers','meta_value_like' => '"'.$results['id'].'"'],
 								'get_type'=>'all','order' => false,'limit'=>0]))):?>
 							<li class="page-menu-item ml-2">
 								<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-4"><?=setting['t_manabe']?></a>
@@ -97,7 +97,7 @@ $results = $result;
 							<?php endif?>
 
 							<?php if(count($this->Query->post('projects',[
-								'contain'=>['PostMetas'],'contain_where' => ['meta_key' => $post_type, 'meta_value_like' => '"'.$results['id'].'"'],
+								'contain'=>['PostMetas'],'contain_where' => ['meta_key' => 'centers','meta_value_like' => '"'.$results['id'].'"'],
 								'get_type'=>'all','order' => false,'limit'=>0]))):?>
 							<li class="page-menu-item ml-2">
 								<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-5"><?=setting['t_projects']?></a>
@@ -105,7 +105,7 @@ $results = $result;
 							<?php endif?>
 
 							<?php if(count($this->Query->post('events',['contain'=>['PostMetas'],
-								'contain_where' => ['meta_key' => $post_type,'meta_value_like' => '"'.$results['id'].'"'],
+								'contain_where' => ['meta_key' => 'centers','meta_value_like' => '"'.$results['id'].'"'],
 								'get_type'=>'all','order' => false,'limit'=>0]))):?>
 							<li class="page-menu-item ml-2">
 								<a href="#" class="text-dark text-center" style="min-width: 100px;" data-href="#section-6"><?=setting['t_events']?></a>
@@ -360,7 +360,7 @@ $results = $result;
 	$temps = $this->Query->post('sources',[
 		'contain'=>['PostMetas'],
 		'contain_where' => [
-			'meta_key' => $post_type,
+			'meta_key' => 'centers',
 			'meta_value_like' => '"'.$results['id'].'"'],
 		'get_type'=>'all','order' => false,'limit'=>0]);
 	if(count($temps)):?>
@@ -412,10 +412,11 @@ $results = $result;
 
 	<!-- ------------------------------------------------------------------------- -->	
 	<?php 
+	
 	$temps = $this->Query->post('projects',[
 		'contain'=>['PostMetas'],
 		'contain_where' => [
-			'meta_key' => $post_type,
+			'meta_key' => 'centers',
 			'meta_value_like' => '"'.$results['id'].'"'],
 		'get_type'=>'all','order' => false,'limit'=>0]);
 	
@@ -491,7 +492,7 @@ $results = $result;
 	$temps = $this->Query->post('events',[
 		'contain'=>['PostMetas'],
 		'contain_where' => [
-			'meta_key' => $post_type,
+			'meta_key' => 'centers',
 			'meta_value_like' => '"'.$results['id'].'"'],
 		'get_type'=>'all','order'=>['Posts.id'=>'desc'],'limit'=>9]);
 	if(count($temps)):?>

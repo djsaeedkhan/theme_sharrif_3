@@ -1,6 +1,7 @@
 <?php 
 $this->Func->getSiteSetting();
 define('lang', isset(setting['default_lang'])?setting['default_lang']:'fa');
+define('strip_tags_list','<b><strong><video><source><br><p><a><ul><li><img><div><iframe>');
 ?>
 <!DOCTYPE html>
 <html dir="<?=(lang=='fa')?'rtl':'ltr';?>" lang="<?=(lang=='fa')?'fa-IR':'en-US';?>" class="htmls">
